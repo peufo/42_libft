@@ -9,9 +9,11 @@ OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	echo "TODO: CREATE ARCHIVE FROM OBJECTS"
+	ar -cr $@.a $^
+	ranlib $@.a
 
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.c | $(DIR_BUILD)
+	@./sync.sh $^
 	cc -fsanitize=address -Wall -Wextra -Werror -c $^ -o $@
 
 $(DIR_BUILD):
