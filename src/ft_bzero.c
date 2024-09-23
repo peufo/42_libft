@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/23 17:55:33 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/09/23 18:40:28 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/09/23 18:44:56 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "../libft.h"
 
-typedef unsigned long	t_size;
-
-int		ft_isdigit(int c);
-int		ft_isalpha(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-t_size	ft_strlen(char *str);
-
-void	*ft_memset(void *str, int c, t_size len);
-void	ft_bzero(void *s, t_size n);
-#endif
+void	ft_bzero(void *s, t_size n)
+{
+	while (n--)
+		*((char *)s++) = 0;
+}

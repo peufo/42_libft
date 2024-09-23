@@ -9,6 +9,7 @@ FUNCTIONS =	ft_isalpha\
 			ft_isprint\
 			ft_strlen\
 			ft_memset\
+			ft_bzero\
 
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
