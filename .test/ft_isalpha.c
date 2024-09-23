@@ -13,16 +13,16 @@ void test(int arg) {
 int main() {
 	test(0);
 	test(1000);
-	test('0');
-	test('1');
-	test(' ');
-	test('s');
-	test('w');
-	test('z');
-	test('Z');
 	test(6000);
 	test(-6000);
-	test('b');
-	test('B');
+	test('a');
+	test('f');
+	test('z');
+	test('A');
+	test('F');
+	test('Z');
+	test('5');
+	test(' ');
+	test('_');
 	return 0;
 }

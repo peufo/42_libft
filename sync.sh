@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sync() {
 	LIB="./libft.h"
 	FILE_NAME=${1#*src/}
