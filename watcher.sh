@@ -1,7 +1,13 @@
 #!/bin/bash
 
 info() {
-	echo -e "\033[36m$1\033[0m\n"
+	echo -e "\033[36m$1\033[0m"
+}
+warning() {
+	echo -e "\033[31m$1\033[0m"
+}
+success() {
+	echo -e "\033[32m$1\033[0m"
 }
 
 watch() {
@@ -14,8 +20,13 @@ watch() {
 			clear
 			info "HEY BRO 👋 $(date)"
 
-			info "NORMINETTE"
-			norminette
+			NORM_ERROR=$(sed -e '/.*: OK!/d' <(norminette))
+			if [[ $NORM_ERROR == "" ]] ; then
+				success "\nNORMINETTE OK"
+			else
+				warning "\nNORMINETTE ERROR"
+				echo "$NORM_ERROR"
+			fi
 
 			info "\nTESTS"
 			make test
