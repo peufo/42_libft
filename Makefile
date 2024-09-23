@@ -11,6 +11,7 @@ FUNCTIONS =	ft_isalpha\
 			ft_memset\
 			ft_bzero\
 			ft_memcpy\
+			ft_memmove\
 
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))

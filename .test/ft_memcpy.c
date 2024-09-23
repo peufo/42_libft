@@ -26,4 +26,5 @@ int	main()
 	test("YOLO", 4);
 	test("", 0);
 	test("PROUT ✊", 9);
+
 }
