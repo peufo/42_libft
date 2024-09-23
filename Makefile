@@ -3,11 +3,12 @@ DIR_SRC = src
 DIR_BUILD = build
 DIR_TEST = .test
 FUNCTIONS =	ft_isalpha\
-						ft_isdigit\
-						ft_isalnum\
-						ft_isascii\
-						ft_isprint\
-						ft_strlen\
+			ft_isdigit\
+			ft_isalnum\
+			ft_isascii\
+			ft_isprint\
+			ft_strlen\
+			ft_memset\
 
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
