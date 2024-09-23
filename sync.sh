@@ -1,5 +1,5 @@
 sync() {
-	LIB="./src/libft.h"
+	LIB="./libft.h"
 	FILE_NAME=${1#*src/}
 	FUNCTION_NAME=${FILE_NAME%.c*}
 	IMPLEMENTATION=$(grep "$FUNCTION_NAME(" $1)
