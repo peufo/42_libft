@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/23 17:13:18 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/09/23 16:44:12 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/09/23 17:01:30 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-typedef unsigned long	t_size;
-
-int			ft_isdigit(int c);
-int			ft_isalpha(int c);
-int			ft_isalnum(int c);
-int			ft_isascii(int c);
-int			ft_isprint(int c);
-t_size	ft_strlen(char *str);
-
-#endif
+int	ft_isprint(int c)
+{
+	return (040 <= c && c <= 0176);
+}

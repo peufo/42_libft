@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/23 17:13:18 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/09/23 17:01:59 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/09/23 17:20:51 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "../libft.h"
 
-typedef unsigned long	t_size;
-
-int			ft_isdigit(int c);
-int			ft_isalpha(int c);
-int			ft_isalnum(int c);
-int			ft_isascii(int c);
-int			ft_isprint(int c);
-t_size	ft_strlen(char *str);
-
-#endif
+t_size	ft_strlen(char *str)
+{
+	t_size	size;
+	
+	size = 0;
+	while (str[size])
+		size++;
+	return (size);
+}

@@ -3,10 +3,10 @@
 #include "../libft.h"
 
 void test(int arg) {
-	int accepted = isascii(arg);
-	int recieved = ft_isascii(arg);
+	int accepted = isprint(arg);
+	int recieved = ft_isprint(arg);
 	if (accepted == recieved) return;
-	printf("(%i) => %i instead of %i\n", arg, recieved, accepted);
+	printf("(%i) => %i instead %i\n", arg, recieved, accepted);
 	return;
 }
 
@@ -14,6 +14,9 @@ int main() {
 	test(-1);
 	test(0);
 	test(1);
+	test(31);
+	test(32);
+	test(33);
 	test(125);
 	test(126);
 	test(127);
@@ -26,6 +29,6 @@ int main() {
 	test('Z');
 	test('5');
 	test(' ');
-	test('\n');
+	test('_');
 	return 0;
 }
