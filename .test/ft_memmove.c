@@ -61,7 +61,6 @@ void test_overlap(const void *src, int delta, t_size len)
 
 int	main()
 {
-
 	test("YOLO", 0);
 	test("YOLO", 3);
 	test("YOLO", 4);

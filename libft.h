@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/23 22:36:48 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/23 23:32:30 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 t_size	ft_strlen(const char *str);
-void	*ft_memset(void *str, int c, t_size n);
+t_size	ft_strlcpy(char *dst, const char *src, t_size len);
 void	ft_bzero(void *s, t_size n);
+void	*ft_memset(void *str, int c, t_size n);
 void	*ft_memcpy(void *dst, const void *src, t_size n);
 void	*ft_memmove(void *dst, const void *src, t_size n);
-t_size	ft_strlcpy(char *dst, const char *src, t_size len);
+t_size	ft_strlcat(char *dst, const char *src, t_size dsize);
 #endif
