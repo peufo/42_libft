@@ -18,9 +18,13 @@ int main()
 	test("", 0);
 	test("", 1);
 	test("", 1000);
+	test("", -1);
+	test("", -1000);
 	test("prouuuuuutt", 0);
 	test("prouuuuuutt", 1);
 	test("prouuuuuutt", 1000);
+	test("prouuuuuutt", -1);
+	test("prouuuuuutt", -1000);
 	test("prouuuuuutt", 'p');
 	test("prouuuuuutt", 'r');
 	test("prouuuuuutt", 'u');
