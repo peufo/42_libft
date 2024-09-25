@@ -2,19 +2,19 @@ NAME = libft
 DIR_SRC = src
 DIR_BUILD = build
 DIR_TEST = .test
-FUNCTIONS =	ft_isalpha\
-			ft_isdigit\
-			ft_isalnum\
-			ft_isascii\
-			ft_isprint\
-			ft_strlen\
-			ft_strlcpy\
-			ft_strlcat\
-			ft_bzero\
-			ft_memset\
-			ft_memcpy\
-			ft_memmove\
-			ft_toupper\
+FUNCTIONS += ft_isalpha
+FUNCTIONS += ft_isdigit
+FUNCTIONS += ft_isalnum
+FUNCTIONS += ft_isascii
+FUNCTIONS += ft_isprint
+FUNCTIONS += ft_strlen
+FUNCTIONS += ft_strlcpy
+FUNCTIONS += ft_strlcat
+FUNCTIONS += ft_bzero
+FUNCTIONS += ft_memset
+FUNCTIONS += ft_memcpy
+FUNCTIONS += ft_memmove
+FUNCTIONS += ft_toupper
 
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
