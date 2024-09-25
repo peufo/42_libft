@@ -15,6 +15,9 @@ FUNCTIONS += ft_memset
 FUNCTIONS += ft_memcpy
 FUNCTIONS += ft_memmove
 FUNCTIONS += ft_toupper
+FUNCTIONS += ft_tolower
+FUNCTIONS += ft_strchr
+FUNCTIONS += ft_strrchr
 
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
