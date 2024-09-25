@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/23 23:32:30 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:07:46 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	*ft_memset(void *str, int c, t_size n);
 void	*ft_memcpy(void *dst, const void *src, t_size n);
 void	*ft_memmove(void *dst, const void *src, t_size n);
 t_size	ft_strlcat(char *dst, const char *src, t_size dsize);
+int	ft_toupper(int c);
 #endif
