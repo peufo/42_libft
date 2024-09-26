@@ -13,9 +13,9 @@ test() {
 		RESULT=$($P)
 		TEST_NAME=${P#*.test/build/}
 		if [[ $RESULT == "" ]] ; then
-			success "$TEST_NAME => OK" 
+			success "$TEST_NAME\tOK" 
 		else
-			warning "$TEST_NAME => FAIL" 
+			warning "$TEST_NAME\tFAIL" 
 			echo -e "./src/$TEST_NAME.c ./.test/$TEST_NAME.c\n"
 			echo -e "$RESULT\n"
 		fi		

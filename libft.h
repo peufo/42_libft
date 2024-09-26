@@ -33,4 +33,5 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 void	*ft_memchr(const void *s, int c, t_size n);
 int		ft_memcmp(const void *s1, const void *s2, t_size n);
+char	*ft_strnstr(const char *str, const char *find, t_size len);
 #endif

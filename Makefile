@@ -20,6 +20,7 @@ FUNCTIONS += ft_strchr
 FUNCTIONS += ft_strrchr
 FUNCTIONS += ft_memchr
 FUNCTIONS += ft_memcmp
+FUNCTIONS += ft_strnstr
 
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
