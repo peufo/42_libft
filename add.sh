@@ -23,12 +23,16 @@ TEST_CONTENT="#include <ctype.h>
 
 void test()
 {
-
+	if (1) {
+		printf("args=TEST NOT IMPLEMENTED\n");
+		printf("accepted: \n");
+		printf("recieved: \n");
+	}
 }
 
 int main()
 {
-
+	test();
 }
 "
 

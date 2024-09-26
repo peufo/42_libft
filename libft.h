@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/25 16:44:56 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:51:30 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ typedef unsigned long	t_size;
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
-int		ft_isascii(int c);
+int		ft_isascii(int c);	
 int		ft_isprint(int c);
 t_size	ft_strlen(const char *str);
 t_size	ft_strlcpy(char *dst, const char *src, t_size len);
@@ -32,4 +32,5 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 void	*ft_memchr(const void *s, int c, t_size n);
+int		ft_memcmp(const void *s1, const void *s2, t_size n);
 #endif
