@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 20:20:15 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 23:39:11 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/28 00:26:04 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@ char	*ft_substr(char const *s, unsigned int start, t_size len)
 {
 	char	*sub;
 
-	(void)s;
-	(void)start;
-	(void)len;
-	sub = (void *)0;
+	sub = ft_calloc(len, sizeof(char));
+	if (sub)
+		ft_strlcpy(sub, s + start, len);
 	return (sub);
 }
