@@ -1,7 +1,6 @@
 #include <strings.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "../libft.h"
 
 void test(void *s, t_size len)
 {

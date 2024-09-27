@@ -1,7 +1,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libft.h"
 
 void test(char *str) {
 	size_t accepted = strlen(str);

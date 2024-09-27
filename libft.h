@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 20:10:03 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:37:42 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ char	*ft_strnstr(const char *str, const char *find, t_size len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(t_size count, t_size size);
 char	*ft_strdup(const char *str);
+char	*ft_substr(char const *s, unsigned int start, t_size len);
 #endif

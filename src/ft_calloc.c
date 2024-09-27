@@ -6,12 +6,11 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 19:30:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 19:40:00 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:36:35 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../libft.h"
 
 void	*ft_calloc(t_size count, t_size size)
 {

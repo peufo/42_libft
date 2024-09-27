@@ -6,11 +6,9 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 18:59:13 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/23 21:59:23 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:36:58 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, t_size n)
 {

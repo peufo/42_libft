@@ -1,6 +1,5 @@
 #include <ctype.h>
 #include <stdio.h>
-#include "../libft.h"
 
 void test(int arg) {
 	int accepted = isascii(arg);

@@ -1,8 +1,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libft.h"
-
 
 void test(char *dst, char *src, t_size len)
 {

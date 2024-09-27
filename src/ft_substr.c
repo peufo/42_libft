@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 11:50:47 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/25 12:07:48 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/09/27 20:20:15 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/09/27 23:39:11 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+char	*ft_substr(char const *s, unsigned int start, t_size len)
 {
-	if ('a' <= c && c <= 'z')
-		return (c - 32);
-	return (c);
+	char	*sub;
+
+	(void)s;
+	(void)start;
+	(void)len;
+	sub = (void *)0;
+	return (sub);
 }

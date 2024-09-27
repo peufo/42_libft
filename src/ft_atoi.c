@@ -6,11 +6,9 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:58:27 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 15:58:50 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:34:36 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 char	is_space(char c)
 {

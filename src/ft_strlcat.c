@@ -6,11 +6,9 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 23:31:19 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/24 16:08:32 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:37:18 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 t_size	ft_strlcat(char *dst, const char *src, t_size dsize)
 {

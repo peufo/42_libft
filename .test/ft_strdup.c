@@ -1,6 +1,5 @@
 #include <string.h>
 #include <stdio.h>
-#include "../libft.h"
 
 void test(const char *str)
 {

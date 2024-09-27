@@ -1,6 +1,5 @@
 #include <string.h>
 #include <stdio.h>
-#include "../libft.h"
 
 void test(const void *s1, const void *s2, t_size n)
 {

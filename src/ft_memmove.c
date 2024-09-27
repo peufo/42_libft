@@ -6,11 +6,9 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:55:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/23 22:23:49 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:37:01 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 void	*ft_memmove(void *dst, const void *src, t_size n)
 {

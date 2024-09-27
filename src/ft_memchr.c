@@ -6,11 +6,9 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:05:56 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/26 23:40:38 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:36:47 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 void	*ft_memchr(const void *s, int c, t_size n)
 {

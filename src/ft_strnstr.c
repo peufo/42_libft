@@ -6,11 +6,9 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:07:30 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 15:54:47 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:31:35 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 static t_size	ft_startwith(const char *str, const char *start)
 {
