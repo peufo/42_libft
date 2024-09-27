@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:07:30 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/26 23:40:15 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/09/27 15:54:47 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_size	ft_startwith(const char *str, const char *start)
 
 char	*ft_strnstr(const char *str, const char *find, t_size len)
 {
-	t_size find_len;
+	t_size	find_len;
 
 	if (!*find)
 		return ((char *)str);
