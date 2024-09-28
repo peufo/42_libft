@@ -17,9 +17,7 @@ add_function() {
 	
 }
 
-TEST_CONTENT="#include <ctype.h>
-#include <stdio.h>
-#include \"../libft.h\"
+TEST_CONTENT="#include <stdio.h>
 
 void test()
 {

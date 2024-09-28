@@ -26,6 +26,7 @@ FUNCTIONS += ft_atoi
 FUNCTIONS += ft_calloc
 FUNCTIONS += ft_strdup
 FUNCTIONS += ft_substr
+FUNCTIONS += ft_strjoin
 
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
