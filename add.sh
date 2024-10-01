@@ -14,23 +14,41 @@ add_function() {
 
 	echo "Add function $FUNCTION_NAME to .test"
 	echo "$TEST_CONTENT" > ./.test/$FUNCTION_NAME.c
-	
+
 }
 
 TEST_CONTENT="#include <stdio.h>
 
-void test()
+typedef struct s_test t_test;
+struct s_test {
+
+	char **expected;
+};
+
+void test(t_args *args)
 {
 	if (1) {
 		printf(\"TEST_NOT_IMPLEMENTED\n\");
-		printf(\"accepted: \n\");
+		printf(\"expected: \n\");
 		printf(\"recieved: \n\");
 	}
 }
 
 int main()
 {
-	test();
+	t_args tests[] = {
+		{
+
+			.accepted = (char *[]){ "HE", "O", NULL }
+		},
+	};
+
+	short count = sizeof(tests) / sizeof(tests[0]);
+	short index = 0;
+	while (index < count)
+	{
+		test(tests + index++);
+	}
 }
 "
 
