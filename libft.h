@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/01 20:38:45 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/01 21:44:36 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 char	*ft_itoa(int n);
 void	ft_putstr(char *str);
-char	*ft_strmapi(char const *s, char (*f)(unsigned int , int, char));
+char	*ft_strmapi(char const *s, char (*f) (unsigned int, int, char));
 #endif
