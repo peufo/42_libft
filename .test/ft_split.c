@@ -20,16 +20,6 @@ void	print_arr(char **arr)
 	printf("]\n");
 }
 
-char **create_arr(char *s, ...)
-{
-	va_list ap;
-	va_start(ap, s);
-
-	va_end(ap)
-
-
-}
-
 void test(char const *s, char c, char const **accepted)
 {
 	char **res = ft_split(s, c);
@@ -45,6 +35,8 @@ void test(char const *s, char c, char const **accepted)
 
 int main()
 {
-	test("HELLO", "L", {"HE", "O", NULL});
+	char **arr = {"HE", "O", NULL};
+
+	test("HELLO", "L", arr);
 }
 
