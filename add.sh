@@ -25,18 +25,18 @@ struct s_test {
 	char **expected;
 };
 
-void test(t_args *args)
+void test(t_test *args)
 {
 	if (1) {
 		printf(\"TEST_NOT_IMPLEMENTED\n\");
-		printf(\"expected: \n\");
+		printf(\"expected:%s \n\", args->expected);
 		printf(\"recieved: \n\");
 	}
 }
 
 int main()
 {
-	t_args tests[] = {
+	t_test tests[] = {
 		{
 
 			.accepted = (char *[]){ "HE", "O", NULL }

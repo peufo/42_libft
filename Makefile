@@ -1,43 +1,19 @@
-NAME = libft
+NAME = libft.a
 DIR_SRC = src
 DIR_BUILD = build
 DIR_TEST = .test
 FLAGS = -Wall -Wextra -Werror -include libft.h
-FUNCTIONS += ft_isalpha
-FUNCTIONS += ft_isdigit
-FUNCTIONS += ft_isalnum
-FUNCTIONS += ft_isascii
-FUNCTIONS += ft_isprint
-FUNCTIONS += ft_strlen
-FUNCTIONS += ft_strlcpy
-FUNCTIONS += ft_strlcat
-FUNCTIONS += ft_bzero
-FUNCTIONS += ft_memset
-FUNCTIONS += ft_memcpy
-FUNCTIONS += ft_memmove
-FUNCTIONS += ft_toupper
-FUNCTIONS += ft_tolower
-FUNCTIONS += ft_strchr
-FUNCTIONS += ft_strrchr
-FUNCTIONS += ft_memchr
-FUNCTIONS += ft_memcmp
-FUNCTIONS += ft_strnstr
-FUNCTIONS += ft_atoi
-FUNCTIONS += ft_calloc
-FUNCTIONS += ft_strdup
-FUNCTIONS += ft_substr
-FUNCTIONS += ft_strjoin
-FUNCTIONS += ft_strtrim
-FUNCTIONS += ft_split
 
+SOURCES = $(DIR_SRC)/*.c
+FUNCTIONS = $(subst .c,,$(notdir $(SOURCES)))
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@ar -cr $@.a $^
-	@ranlib $@.a
+	@ar -cr $@ $^
+	@ranlib $@
 
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.c | $(DIR_BUILD)
 	@cc $(FLAGS) -c $^ -o $@

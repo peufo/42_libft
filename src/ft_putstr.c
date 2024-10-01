@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 01:06:44 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/01 16:44:13 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/10/01 16:52:06 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/10/01 16:55:08 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strjoin(const char *a, const char *b)
+void	ft_putstr(char *str)
 {
-	char	*str;
-	t_size	len;
-
-	len = ft_strlen(a) + ft_strlen(b) + 1;
-	str = ft_calloc(len, sizeof(*str));
-	if (!str)
-		return (str);
-	ft_strlcat(str, a, len);
-	ft_strlcat(str, b, len);
-	return (str);
+	while (*str)
+		write(1, str++, 1);
 }
