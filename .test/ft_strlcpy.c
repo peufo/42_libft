@@ -21,7 +21,7 @@ void test(char *src, t_size len)
 }
 
 int main()
-{ 
+{
 	test("", 0);
 	test("", 10);
 	test("YOLO", 0);
@@ -29,4 +29,7 @@ int main()
 	test("YOLO", 4);
 	test("YOLO", 5);
 	test("YOLO", 6);
+	test("lorem ipsum dolor sit amet", 0);
+	test("lorem ipsum dolor sit amet", 10);
+	test("lorem ipsum dolor sit amet", 15);
 }
