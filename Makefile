@@ -28,6 +28,7 @@ FUNCTIONS += ft_strdup
 FUNCTIONS += ft_substr
 FUNCTIONS += ft_strjoin
 FUNCTIONS += ft_strtrim
+FUNCTIONS += ft_split
 
 OBJECTS = $(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS = $(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
