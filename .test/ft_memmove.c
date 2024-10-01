@@ -16,11 +16,13 @@ void memprint(const void *src, t_size len)
 
 void test(const void *src, t_size len)
 {
-	void *dst_a = malloc(strlen(src));
-	void *dst_b = malloc(strlen(src));
-
-	memmove(dst_a, src, len);
+	t_size src_len = ft_strlen(src);
+	void *dst_a = ft_calloc(1, src_len);
+	void *dst_b = ft_calloc(1, src_len);
 	ft_memmove(dst_b, src, len);
+	if (!src_len)
+		return ;
+	memmove(dst_a, src, len);
 	if (memcmp(dst_a, dst_b, len) != 0)
 	{
 		printf("accepted: %s\n", (char *)dst_a);
@@ -66,6 +68,7 @@ int	main()
 	test("", 0);
 	test("PROUT ✊", 9);
 	test("PROUT ✊", 9);
+	test(NULL, 9);
 
 	test_overlap("0123456789", 0, 10);
 	test_overlap("0123456789", 1, 10);
