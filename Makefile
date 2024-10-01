@@ -40,7 +40,6 @@ $(NAME): $(OBJECTS)
 	@ranlib $@.a
 
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.c | $(DIR_BUILD)
-	@./sync.sh $^
 	@cc $(FLAGS) -c $^ -o $@
 
 $(DIR_BUILD):

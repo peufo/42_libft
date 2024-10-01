@@ -2,6 +2,13 @@
 #include <string.h>
 #include <stdarg.h>
 
+typedef struct s_args t_args;
+struct s_args {
+	char const *str;
+	char c;
+	char **accepted;
+};
+
 short is_same_arr(char **arr_a, char **arr_b)
 {
 	while (*arr_a && *arr_b)
@@ -17,26 +24,64 @@ void	print_arr(char **arr)
 	printf("[");
 	while (*arr)
 		printf("%s, ", *(arr++));
-	printf("]\n");
+	printf("(null)]\n");
 }
 
-void test(char const *s, char c, char const **accepted)
+void test(t_args *args)
 {
-	char **res = ft_split(s, c);
 
-	if (is_same_arr(res, accepted)) {
-		printf("s=%s c=%c\n", s, c);
+	char **res = ft_split(args->str, args->c);
+
+	if (!is_same_arr(res, args->accepted)) {
+		printf("s=%s c=%c\n", args->str, args->c);
 		printf("accepted: ");
-		print_arr(accepted);
+		print_arr(args->accepted);
 		printf("recieved: ");
 		print_arr(res);
 	}
+	free(res);
 }
 
 int main()
 {
-	char **arr = {"HE", "O", NULL};
+	t_args tests[] = {
+		{
+			.str = "HELLO",
+			.c = 'L',
+			.accepted = (char *[]){ "HE", "O", NULL }
+		},
+		{
+			.str = "HELLO",
+			.c = 'E',
+			.accepted = (char *[]){ "H", "LLO", NULL }
+		},
+		{
+			.str = "HELLO",
+			.c = 'H',
+			.accepted = (char *[]){ "ELLO", NULL }
+		},
+		{
+			.str = "HHHHHELLO HO HO",
+			.c = 'H',
+			.accepted = (char *[]){ "ELLO ", "O ", "O", NULL }
+		},
+		{
+			.str = "HELLO",
+			.c = 'O',
+			.accepted = (char *[]){ "HELL", NULL }
+		},
+		{
+			.str = "HELLOOOO",
+			.c = 'O',
+			.accepted = (char *[]){ "HELL", NULL }
+		},
+	};
 
-	test("HELLO", "L", arr);
+	short count = sizeof(tests) / sizeof(tests[0]);
+	short index = 0;
+	while (index < count)
+	{
+		test(tests + index++);
+	}
 }
 

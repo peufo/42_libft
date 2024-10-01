@@ -3,16 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
+/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 01:06:44 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/28 10:25:06 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:01:23 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
 
 char	*ft_strjoin(const char *a, const char *b)
 {

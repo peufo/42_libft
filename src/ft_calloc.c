@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
+/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 19:30:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 23:36:35 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:00:37 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
 
 void	*ft_calloc(t_size count, t_size size)
 {
