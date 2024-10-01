@@ -41,6 +41,10 @@ int main()
 			.n = -2147483648,
 			.expected = "-2147483648"
 		},
+		{
+			.n = -8,
+			.expected = "-8"
+		},
 	};
 
 	short count = sizeof(tests) / sizeof(tests[0]);

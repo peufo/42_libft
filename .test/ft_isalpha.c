@@ -3,9 +3,9 @@
 
 void test(int arg) {
 	int accepted = isalpha(arg);
-	int recieved = ft_isalpha(arg);
-	if (accepted == recieved) return;
-	printf("(%i) => %i instead of %i\n", arg, recieved, accepted);
+	int received = ft_isalpha(arg);
+	if (accepted == received) return;
+	printf("(%i) => %i instead of %i\n", arg, received, accepted);
 	return;
 }
 
