@@ -1,7 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-
 void test(char *str, int c, t_size len)
 {
 	char *str_a = strdup(str);
@@ -10,7 +6,7 @@ void test(char *str, int c, t_size len)
 	ft_memset(str_b, c, len);
 	if (strcmp(str_a, str_b) == 0) return;
 	printf("accepted: %s\n", str_a);
-	printf("recieved: %s\n", str_b);
+	printf("received: %s\n", str_b);
 }
 
 int	main()

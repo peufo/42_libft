@@ -1,11 +1,10 @@
 #include <ctype.h>
-#include <stdio.h>
 
 void test(int arg) {
 	int accepted = isdigit(arg);
-	int recieved = ft_isdigit(arg);
-	if (accepted == recieved) return;
-	printf("(%i) => %i instead of %i\n", arg, recieved, accepted);
+	int received = ft_isdigit(arg);
+	if (accepted == received) return;
+	printf("(%i) => %i instead of %i\n", arg, received, accepted);
 	return;
 }
 

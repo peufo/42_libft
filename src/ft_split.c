@@ -15,7 +15,7 @@ static char	*str_cut(char *start, char *end)
 	char	*cut;
 	char	*_cut;
 
-	if (!start | !end | end < start)
+	if (!start | !end | (end < start))
 		return (NULL);
 	cut = malloc(end - start + 1);
 	_cut = cut;

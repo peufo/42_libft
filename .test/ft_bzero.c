@@ -1,4 +1,4 @@
-#include <strings.h>
+#include <string.h>
 #include <stdio.h>
 #include <unistd.h>
 
@@ -10,7 +10,7 @@ void test(void *s, t_size len)
 	ft_bzero(str_b, len);
 	if (strcmp(str_a, str_b) == 0) return;
 	printf("accepted: %s\n", str_a);
-	printf("recieved: %s\n", str_b);
+	printf("received: %s\n", str_b);
 }
 
 int	main()

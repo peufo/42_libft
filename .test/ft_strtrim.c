@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-
 void test(char const *str, char const *set, const char *accepted)
 {
 	char *res = ft_strtrim(str, set);
@@ -8,7 +5,7 @@ void test(char const *str, char const *set, const char *accepted)
 	if (strcmp(res, accepted) != 0) {
 		printf("str=\"%s\" set=\"%s\"\n", str, set);
 		printf("accepted: %s\n", accepted);
-		printf("recieved: %s\n", res);
+		printf("received: %s\n", res);
 	}
 }
 

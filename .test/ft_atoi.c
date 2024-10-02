@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-
 void test(const char *str)
 {
 	int a = atoi(str);
@@ -8,7 +5,7 @@ void test(const char *str)
 	if (a != b) {
 		printf("str=%s\n", str);
 		printf("accepted: %i\n", a);
-		printf("recieved: %i\n\n", b);
+		printf("received: %i\n\n", b);
 	}
 }
 

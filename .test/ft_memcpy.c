@@ -1,7 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 void test(const void *src, t_size len)
 {
 	void *dst_a = malloc(strlen(src));
@@ -12,7 +8,7 @@ void test(const void *src, t_size len)
 	if (memcmp(dst_a, dst_b, len) != 0)
 	{
 		printf("accepted: %s\n", (char *)dst_a);
-		printf("recieved: %s\n", (char *)dst_b);
+		printf("received: %s\n", (char *)dst_b);
 	}
 	free(dst_a);
 	free(dst_b);

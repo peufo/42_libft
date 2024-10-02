@@ -1,11 +1,10 @@
 #include <ctype.h>
-#include <stdio.h>
 
 void test(int arg) {
 	int accepted = isascii(arg);
-	int recieved = ft_isascii(arg);
-	if (accepted == recieved) return;
-	printf("(%i) => %i instead of %i\n", arg, recieved, accepted);
+	int received = ft_isascii(arg);
+	if (accepted == received) return;
+	printf("(%i) => %i instead of %i\n", arg, received, accepted);
 	return;
 }
 

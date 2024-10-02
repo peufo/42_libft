@@ -1,4 +1,4 @@
-#include <string.h>
+#include <bsd/string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,7 +19,7 @@ void test(char *dst, char *src, t_size len)
 }
 
 int main()
-{ 
+{
 	test("", "", 0);
 	test("", "", 10);
 	test("YOLO", "", 0);

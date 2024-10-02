@@ -1,5 +1,4 @@
 #include <ctype.h>
-#include <stdio.h>
 
 void test()
 {

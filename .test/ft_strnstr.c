@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-
 void test(const char *str, const char *find, t_size len)
 {
 	char *a = strnstr(str, find, len);
@@ -9,7 +6,7 @@ void test(const char *str, const char *find, t_size len)
 	if (a != b) {
 		printf("str=%s find=%s len=%lu\n" ,str, find, len);
 		printf("accepted: %s\n", a);
-		printf("recieved: %s\n", b);
+		printf("received: %s\n", b);
 	}
 }
 

@@ -1,7 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 void test(char *src, t_size len)
 {
 	char *a = malloc(len + 1);

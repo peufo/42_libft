@@ -14,8 +14,7 @@ add_function() {
 
 }
 
-TEST_CONTENT="#include <stdio.h>
-
+TEST_CONTENT="
 typedef struct s_test t_test;
 struct s_test {
 
@@ -27,7 +26,7 @@ void test(t_test *args)
 	if (1) {
 		printf(\"TEST_NOT_IMPLEMENTED\n\");
 		printf(\"expected:%s \n\", args->expected);
-		printf(\"recieved: \n\");
+		printf(\"received: \n\");
 	}
 }
 

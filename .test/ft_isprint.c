@@ -1,11 +1,10 @@
 #include <ctype.h>
-#include <stdio.h>
 
 void test(int arg) {
 	int accepted = isprint(arg);
-	int recieved = ft_isprint(arg);
-	if (accepted == recieved) return;
-	printf("(%i) => %i instead %i\n", arg, recieved, accepted);
+	int received = ft_isprint(arg);
+	if (accepted == received) return;
+	printf("(%i) => %i instead %i\n", arg, received, accepted);
 	return;
 }
 

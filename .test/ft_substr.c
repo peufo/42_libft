@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-
 void test(char *str, unsigned int start, t_size len, char *accepted)
 {
 	char *res = ft_substr(str, start, len);
@@ -10,7 +7,7 @@ void test(char *str, unsigned int start, t_size len, char *accepted)
 	{
 		printf("str=%s start=%u len=%lu\n", str, start, len);
 		printf("accepted: %s\n", accepted);
-		printf("recieved: %s\n", res);
+		printf("received: %s\n", res);
 	}
 }
 

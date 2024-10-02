@@ -1,12 +1,8 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 void test(char *str) {
 	size_t accepted = strlen(str);
-	size_t recieved = ft_strlen(str);
-	if (accepted == recieved) return;
-	printf("(%s) => %zu instead %zu\n", str, recieved, accepted);
+	size_t received = ft_strlen(str);
+	if (accepted == received) return;
+	printf("(%s) => %zu instead %zu\n", str, received, accepted);
 	return;
 }
 

@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-
 void test(const void *s1, const void *s2, t_size n)
 {
 	if (n > strlen(s1) || n > strlen(s2))
@@ -10,7 +7,7 @@ void test(const void *s1, const void *s2, t_size n)
 	if (a != b) {
 		printf("s1=%s s2=%s n=%lu\n", (unsigned char*)s1, (unsigned char*)s2, n);
 		printf("accepted: %i\n", a);
-		printf("recieved: %i\n", b);
+		printf("received: %i\n", b);
 	}
 }
 

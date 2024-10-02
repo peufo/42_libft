@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-
 void test(const char *s, int c)
 {
 	char *a = strrchr(s, c);

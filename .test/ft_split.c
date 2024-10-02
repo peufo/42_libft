@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdarg.h>
-
 typedef struct s_args t_args;
 struct s_args {
 	char const *str;
@@ -36,7 +32,7 @@ void test(t_args *args)
 		printf("s=%s c=%c\n", args->str, args->c);
 		printf("accepted: ");
 		print_arr(args->accepted);
-		printf("recieved: ");
+		printf("received: ");
 		print_arr(res);
 	}
 	free(res);

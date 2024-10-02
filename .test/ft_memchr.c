@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-
 void test(const void *s, int c)
 {
 	t_size ns[] = {0, 1, 3, 5, 11, 12, 13, 14, 15};

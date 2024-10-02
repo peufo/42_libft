@@ -11,11 +11,17 @@ success() {
 }
 
 watch() {
+	if [[ $(uname) == "Linux" ]];  then
+		MD5="md5sum"
+	else
+		MD5="md5"
+	fi
+
 	STATE_A=""
 	while [[ true ]]
 	do
-		STATE_B=$(find -L . -type f -name "*.c" -exec md5 {} \;)
-		if [[ $STATE_A != $STATE_B ]] ; then
+		STATE_B=$(find -L . -type f -name "*.c" -exec $MD5 {} \;)
+		if [[ $STATE_A != $STATE_B ]]; then
 			STATE_A=$STATE_B
 			clear
 			info "HEY BRO 👋 $(date)"

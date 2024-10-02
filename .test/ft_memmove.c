@@ -1,8 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
 void memprint(const void *src, t_size len)
 {
 	while (len--)
@@ -27,7 +22,7 @@ void test(const void *src, t_size len)
 	{
 		printf("accepted: %s\n", (char *)dst_a);
 		memprint(dst_a, len);
-		printf("recieved: %s\n", (char *)dst_b);
+		printf("received: %s\n", (char *)dst_b);
 		memprint(dst_b, len);
 	}
 	free(dst_a);
@@ -56,7 +51,7 @@ void test_overlap(const void *src, int delta, t_size len)
 	{
 		printf("delta=%d len=%lu\n", delta, len);
 		printf("accepted: %s\n", (char *)a);
-		printf("recieved: %s\n", (char *)b);
+		printf("received: %s\n", (char *)b);
 	}
 }
 

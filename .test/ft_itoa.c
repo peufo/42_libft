@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-
 typedef struct s_test t_test;
 struct s_test {
 	int n;
@@ -14,7 +11,7 @@ void test(t_test *args)
 	if (strcmp(res, args->expected) != 0) {
 		printf("n=%d\n", args->n);
 		printf("expected:%s \n", args->expected);
-		printf("recieved:%s \n\n", res);
+		printf("received:%s \n\n", res);
 	}
 }
 

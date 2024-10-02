@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-
 void test(const char *a, const char *b, const char *accepted)
 {
 	char *res = ft_strjoin(a, b);
@@ -8,7 +5,7 @@ void test(const char *a, const char *b, const char *accepted)
 	if (strcmp(res, accepted) != 0) {
 		printf("a=%s b=%s\n", a, b);
 		printf("accepted: %s\n", accepted);
-		printf("recieved: %s\n", res);
+		printf("received: %s\n", res);
 	}
 }
 
