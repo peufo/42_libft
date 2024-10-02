@@ -3,7 +3,7 @@
 void test(int arg) {
 	int accepted = isdigit(arg);
 	int received = ft_isdigit(arg);
-	if (accepted == received) return;
+	if ((accepted == 0) == (received == 0)) return;
 	printf("(%i) => %i instead of %i\n", arg, received, accepted);
 	return;
 }

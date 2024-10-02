@@ -47,7 +47,7 @@ void test_overlap(const void *src, int delta, t_size len)
 		memmove(a - delta, a, len);
 		ft_memmove(b - delta, b, len);
 	}
-	if (memcmp(a, b, len) != 0)
+	if (ft_memcmp(a, b, len) != 0)
 	{
 		printf("delta=%d len=%lu\n", delta, len);
 		printf("accepted: %s\n", (char *)a);
@@ -63,7 +63,6 @@ int	main()
 	test("", 0);
 	test("PROUT ✊", 9);
 	test("PROUT ✊", 9);
-	test(NULL, 9);
 
 	test_overlap("0123456789", 0, 10);
 	test_overlap("0123456789", 1, 10);

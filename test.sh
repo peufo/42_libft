@@ -20,6 +20,10 @@ test() {
 			echo -e "$RESULT\n"
 		fi
 	done
+
+	# https://github.com/alelievr/libft-unit-test
+	cd ../libft-unit-tests
+	make f
 }
 
 test

@@ -18,14 +18,13 @@ endif
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar -cr $@ $^
+	@ar -cr $@ $^
 
-so:
-	gcc -nostartfiles -fPIC $(FLAGS) $(SOURCES)
-	gcc -nostartfiles -shared -o libft.so $(OBJECTS)
+so: $(OBJECTS)
+	@gcc -nostartfiles -shared -o libft.so $(OBJECTS)
 
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.c | $(DIR_BUILD)
-	gcc $(FLAGS) -c $^ -o $@
+	@gcc $(FLAGS) -c $^ -o $@
 
 $(DIR_BUILD):
 	mkdir $(DIR_BUILD)
@@ -34,7 +33,7 @@ test: $(NAME) $(TESTS) $(OBJECTS)
 	./test.sh
 
 $(TESTS): $(DIR_TEST)/$(DIR_BUILD)/%: $(DIR_TEST)/%.c $(DIR_BUILD)/%.o | $(DIR_TEST)/$(DIR_BUILD)
-	gcc $(FLAGS) -include $(DIR_TEST)/test.h $< -o $@ $(LIBS)
+	@gcc $(FLAGS) -include $(DIR_TEST)/test.h $< -o $@ $(LIBS)
 
 $(DIR_TEST)/$(DIR_BUILD):
 	mkdir $(DIR_TEST)/$(DIR_BUILD)
