@@ -35,7 +35,7 @@ int main()
 	t_test tests[] = {
 		{
 
-			.accepted = (char *[]){ "HE", "O", NULL }
+			.expected = (char *[]){ "HE", "O", NULL }
 		},
 	};
 
