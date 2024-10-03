@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 15:54:47 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/01 15:18:16 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/03 22:01:39 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ static char	*str_cut(char *start, char *end)
 	char	*_cut;
 
 	if (!start | !end | (end < start))
-		return (NULL);
+		return (0);
 	cut = malloc(end - start + 1);
-	_cut = cut;
 	if (!cut)
-		return (NULL);
+		return (0);
+	_cut = cut;
 	while (start < end)
 		*(_cut++) = *(start++);
 	*_cut = '\0';
 	return (cut);
 }
 
-t_size	get_length(char const *str_origin, char c)
+static t_size	get_length(char const *str_origin, char c)
 {
 	t_size		length;
 	char		*str;
@@ -45,30 +45,36 @@ t_size	get_length(char const *str_origin, char c)
 	return (length);
 }
 
+static void	add_next(char **arr, char *str, char c)
+{
+	char	*end;
+
+	while (*str && *str == c)
+		str++;
+	end = str;
+	while (*end && *end != c)
+		end++;
+	if (str == end)
+	{
+		*arr = (void *)0;
+		return ;
+	}
+	*arr = str_cut(str, end);
+	add_next(arr + 1, end, c);
+	return ;
+}
+
 char	**ft_split(char const *str_origin, char c)
 {
 	t_size		length;
-	t_size		index;
 	char		**arr;
-	char		*start;
-	char		*end;
 
+	if (!str_origin)
+		return (0);
 	length = get_length(str_origin, c);
 	arr = malloc(sizeof(*arr) * (length + 1));
-	start = (char *)str_origin;
-	index = 0;
-	while (*start)
-	{
-		while (*start && *start == c)
-			start++;
-		end = start;
-		while (*end && *end != c)
-			end++;
-		if (start == end)
-			break ;
-		arr[index++] = str_cut(start, end);
-		start = end;
-	}
-	arr[index] = NULL;
+	if (!arr)
+		return (0);
+	add_next(arr, (char *)str_origin, c);
 	return (arr);
 }

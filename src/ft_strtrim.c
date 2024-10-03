@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 10:18:07 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/28 11:54:49 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/03 21:39:32 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strtrim(char const *str, char const *set)
 	t_size		start;
 	t_size		end;
 
+	if (!str || !set)
+		return (0);
 	start = 0;
 	while (str[start] && is_in_charset(str[start], set))
 		start++;
