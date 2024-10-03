@@ -37,5 +37,14 @@ int main()
 	test("YOLO", "LA", 4);
 	test("YOLO", "LA", 5);
 	test("YOLO", "LA", 10);
+	char *s = "YO";
+	test(s, s, 0);
+	test(s, s, 1);
+	test(s, s, 2);
+	test(s, s, 3);
+	test(s, s, 4);
+	test(NULL, NULL, 4);
+	test("HELLO", NULL, 4);
+	test(NULL, "HELLO", 4);
 }
 

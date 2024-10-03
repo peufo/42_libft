@@ -30,7 +30,7 @@ $(DIR_BUILD):
 	mkdir $(DIR_BUILD)
 
 test: $(NAME) $(TESTS) $(OBJECTS)
-	./test.sh
+	@./test.sh
 
 $(TESTS): $(DIR_TEST)/$(DIR_BUILD)/%: $(DIR_TEST)/%.c $(DIR_BUILD)/%.o | $(DIR_TEST)/$(DIR_BUILD)
 	@gcc $(FLAGS) -include $(DIR_TEST)/test.h $< -o $@ $(LIBS)
