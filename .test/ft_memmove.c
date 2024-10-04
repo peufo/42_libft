@@ -1,12 +1,11 @@
-void memprint(const void *src, t_size len)
+void print_bytes(void *ptr, int size) 
 {
-	while (len--)
-	{
-		if (*(char *)src == '\0')
-			write(1, "\\0", 2);
-		else
-			write(1, src++, 1);
-	}
+    unsigned char *p = ptr;
+    int i;
+    for (i=0; i<size; i++) {
+        printf("%02hhX ", p[i]);
+    }
+    printf("\n");
 }
 
 void test(const void *src, t_size len)
@@ -18,21 +17,23 @@ void test(const void *src, t_size len)
 	if (!src_len)
 		return ;
 	memmove(dst_a, src, len);
-	if (memcmp(dst_a, dst_b, len) != 0)
+	if (memcmp(dst_a, dst_b, len))
 	{
 		printf("accepted: %s\n", (char *)dst_a);
-		memprint(dst_a, len);
+		print_bytes(dst_a, len);
 		printf("received: %s\n", (char *)dst_b);
-		memprint(dst_b, len);
+		print_bytes(dst_b, len);
 	}
 	free(dst_a);
 	free(dst_b);
 }
 
+
+
 void test_overlap(const void *src, int delta, t_size len)
 {
-	char src_a[100];
-	char src_b[100];
+	char src_a[100] = { '\0' };
+	char src_b[100] = { '\0' };
 	char *a = src_a + 50;
 	char *b = src_b + 50;
 	strcpy(a, src);
@@ -47,11 +48,13 @@ void test_overlap(const void *src, int delta, t_size len)
 		memmove(a - delta, a, len);
 		ft_memmove(b - delta, b, len);
 	}
-	if (ft_memcmp(a, b, len) != 0)
+	if (memcmp(a, b, len - 1))
 	{
 		printf("delta=%d len=%lu\n", delta, len);
-		printf("accepted: %s\n", (char *)a);
-		printf("received: %s\n", (char *)b);
+		printf("accepted: ");
+		print_bytes(a, len);
+		printf("received: ");
+		print_bytes(b, len);
 	}
 }
 
