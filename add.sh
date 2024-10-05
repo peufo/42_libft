@@ -6,10 +6,10 @@ add_function() {
 		echo "Please, provide a function name"
 	fi
 
-	echo "Add function $FUNCTION_NAME to src"
+	echo "Create file ./src/$FUNCTION_NAME"
 	touch "./src/$FUNCTION_NAME.c"
 
-	echo "Add function $FUNCTION_NAME to .test"
+	echo "Create file ./.test/$FUNCTION_NAME"
 	echo "$TEST_CONTENT" > ./.test/$FUNCTION_NAME.c
 
 }
@@ -17,15 +17,14 @@ add_function() {
 TEST_CONTENT="
 typedef struct s_test t_test;
 struct s_test {
-
-	char **expected;
+	TODO
 };
 
 void test(t_test *args)
 {
 	if (1) {
-		printf(\"TEST_NOT_IMPLEMENTED\n\");
-		printf(\"expected:%s \n\", args->expected);
+		printf(\"TODO\n\");
+		printf(\"expected: \n\", args->expected);
 		printf(\"received: \n\");
 	}
 }
@@ -35,7 +34,7 @@ int main()
 	t_test tests[] = {
 		{
 
-			.expected = (char *[]){ "HE", "O", NULL }
+			.expected = TODO
 		},
 	};
 
