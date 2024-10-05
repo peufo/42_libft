@@ -12,7 +12,7 @@ success() {
 
 test() {
 
-	info "\nMY OWN TESTS"
+	info "\nMY TESTS"
 	TESTS_COUNT=0
 	TESTS_PASSED=0
 	for P in .test/build/*
@@ -30,9 +30,10 @@ test() {
 	done
 	
 	if [[ $TESTS_PASSED == $TESTS_COUNT ]]; then
-		success "[$TESTS_PASSED/$TESTS_COUNT] tests passed 🎉🎉🎉"
+		success "All tests [$TESTS_PASSED/$TESTS_COUNT] passed 🎉🎉🎉"
 	else
-		warning "[$TESTS_PASSED/$TESTS_COUNT] tests passed"
+		success "[$TESTS_PASSED/$TESTS_COUNT] tests passed"
+		warning "But $(($TESTS_COUNT - $TESTS_PASSED)) tests failed"
 	fi
 
 	info "\n\nUNITS TEST LIB (https://github.com/alelievr/libft-unit-test)\n"
