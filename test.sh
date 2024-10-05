@@ -13,11 +13,13 @@ success() {
 test() {
 
 	info "\nMY OWN TESTS"
+	TESTS_COUNT=0
 	TESTS_PASSED=0
 	for P in .test/build/*
 	do
 		RESULT=$($P)
 		TEST_NAME=${P#*.test/build/}
+		((TESTS_COUNT++))
 		if [[ $RESULT == "" ]] ; then
 			((TESTS_PASSED++))
 		else
@@ -27,8 +29,10 @@ test() {
 		fi
 	done
 	
-	if [[ $TESTS_PASSED > 0 ]]; then
-		success "$TESTS_PASSED tests passed with success !"
+	if [[ $TESTS_PASSED == $TESTS_COUNT ]]; then
+		success "[$TESTS_PASSED/$TESTS_COUNT] tests passed 🎉🎉🎉"
+	else
+		warning "[$TESTS_PASSED/$TESTS_COUNT] tests passed"
 	fi
 
 	info "\n\nUNITS TEST LIB (https://github.com/alelievr/libft-unit-test)\n"
