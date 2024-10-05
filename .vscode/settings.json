@@ -2,6 +2,7 @@
   "files.associations": {
     "*.astro": "astro",
     "libft.h": "c",
-    "sstream": "c"
+    "sstream": "c",
+    "cstring": "c"
   }
 }
