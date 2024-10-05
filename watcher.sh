@@ -11,16 +11,11 @@ success() {
 }
 
 watch() {
-	if [[ $(uname) == "Linux" ]];  then
-		MD5="md5sum"
-	else
-		MD5="md5"
-	fi
 
 	STATE_A=""
 	while [[ true ]]
 	do
-		STATE_B=$(find -L . -type f -name "*.c" -exec $MD5 {} \;)
+		STATE_B=$(get_state)
 		if [[ $STATE_A != $STATE_B ]]; then
 			STATE_A=$STATE_B
 			clear
@@ -34,7 +29,6 @@ watch() {
 				echo "$NORM_ERROR"
 			fi
 
-			info "\nTESTS"
 			make test
 
 		fi
@@ -42,4 +36,13 @@ watch() {
 	done
 }
 
-watch
+get_state() {
+	if [[ $(uname) == "Linux" ]];  then
+		MD5="md5sum"
+	else
+		MD5="md5"
+	fi
+	echo $(find -L . -type f -name "*.c" -exec $MD5 {} \;)
+}
+
+watch $@
