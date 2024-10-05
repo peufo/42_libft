@@ -4,7 +4,8 @@
 typedef struct s_test t_test;
 struct s_test {
 	char *path;
-	char *s;
+	int n;
+	char *expected;
 };
 
 void test(t_test *args)
@@ -15,12 +16,12 @@ void test(t_test *args)
 		printf("CANNOT OPEN \"%s\"", args->path);
 		return ;
 	}
-	ft_putstr_fd(args->s, fd);
+	ft_putnbr_fd(args->n, fd);
 	close(fd);
 	char *res = file_read(args->path);
-	if (strcmp(res, args->s)) {
-		printf("expected:%s \n", args->s);
-		printf("received:%s \n", res);
+	if (strcmp(res, args->expected)) {
+		printf("expected: %s\n", args->expected);
+		printf("received: %s\n", res);
 	}
 	remove(args->path);
 }
@@ -30,7 +31,23 @@ int main()
 	t_test tests[] = {
 		{
 			.path = "tmp.txt",
-			.s = "Salut maman"
+			.n = 0,
+			.expected = "0",
+		},
+		{
+			.path = "tmp.txt",
+			.n = 1234,
+			.expected = "1234",
+		},
+		{
+			.path = "tmp.txt",
+			.n = 2147483647,
+			.expected = "2147483647",
+		},
+		{
+			.path = "tmp.txt",
+			.n = -2147483648,
+			.expected = "-2147483648",
 		},
 	};
 
