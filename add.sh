@@ -4,6 +4,7 @@ add_function() {
 	FUNCTION_NAME=$1
 	if [[ $FUNCTION_NAME == "" ]]; then
 		echo "Please, provide a function name"
+		return
 	fi
 
 	echo "Create file ./src/$FUNCTION_NAME"
