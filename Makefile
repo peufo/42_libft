@@ -27,7 +27,7 @@ $(DIR_BUILD)/%.o: $(DIR_SRC)/%.c | $(DIR_BUILD)
 	@gcc $(FLAGS) -c $^ -o $@
 
 $(DIR_BUILD):
-	mkdir $(DIR_BUILD)
+	@mkdir $(DIR_BUILD)
 
 test: $(NAME) $(TESTS) $(OBJECTS)
 	@./test.sh
@@ -39,7 +39,7 @@ $(TESTS): $(DIR_TEST)/$(DIR_BUILD)/%: $(DIR_TEST)/%.c $(DIR_BUILD)/%.o | $(DIR_T
 	@gcc $(FLAGS) -include $(DIR_TEST)/test.h $< -o $@ $(LIBS)
 
 $(DIR_TEST)/$(DIR_BUILD):
-	mkdir $(DIR_TEST)/$(DIR_BUILD)
+	@mkdir $(DIR_TEST)/$(DIR_BUILD)
 
 clean:
 	rm -rf $(DIR_BUILD)
