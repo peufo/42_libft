@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 22:24:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/05 21:26:03 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/05 22:06:15 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ char	*ft_itoa(int n);
 char	*ft_itoa(int n);
 void	ft_putstr(char *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 #endif

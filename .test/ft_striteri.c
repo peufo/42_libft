@@ -1,41 +1,37 @@
-
-
 typedef struct s_test t_test;
 struct s_test {
-	char const *s;
-	char (*f)(unsigned int, char);
+	char *s;
+	void (*f)(unsigned int, char*);
 	char *expected;
 };
 
 void test(t_test *args)
 {
-	char *res = ft_strmapi(args->s, args->f);
-	if (strcmp(res, args->expected)) {
+	ft_striteri(args->s, args->f);
+	if (strcmp(args->s, args->expected)) {
 		printf("s=%s\n", args->s);
 		printf("expected:%s\n", args->expected);
-		printf("received:%s\n", res);
+		printf("received:%s\n", args->s);
 	}
 }
 
-char to_2(unsigned int index, char c)
+void to_2(unsigned int index, char *c)
 {
 	(void)index;
-	(void)c;
-	return ('a');
+	*c = 'a';
 }
 
-char to_add_two(unsigned int index, char c)
+void to_add_two(unsigned int index, char *c)
 {
 	(void)index;
-	return (c + 2);
+	*c += 2;
 }
 
-char to_upper(unsigned int index, char c)
+void to_upper(unsigned int index, char *c)
 {
 	(void)index;
-	if ('a' <= c && c <= 'z')
-		return (c - 32);
-	return (c);
+	if ('a' <= *c && *c <= 'z')
+		*c -= 32;
 }
 
 int main()
@@ -65,4 +61,3 @@ int main()
 		test(tests + index++);
 	}
 }
-
