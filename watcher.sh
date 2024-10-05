@@ -29,8 +29,11 @@ watch() {
 				echo "$NORM_ERROR"
 			fi
 
-			make test
-
+			if [[ $1 == "-v" ]] ; then
+				make test-v
+			else
+				make test
+			fi
 		fi
 		sleep 0.1
 	done

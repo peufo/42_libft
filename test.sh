@@ -22,6 +22,9 @@ test() {
 		((TESTS_COUNT++))
 		if [[ $RESULT == "" ]] ; then
 			((TESTS_PASSED++))
+			if [[ $1 == "-v" ]] ; then
+				success "$TEST_NAME\tOK"
+			fi
 		else
 			warning "$TEST_NAME\tFAIL" 
 			echo -e "./src/$TEST_NAME.c ./.test/$TEST_NAME.c\n"

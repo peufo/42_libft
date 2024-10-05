@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:52:06 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/01 16:55:08 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 00:59:14 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putstr(char *str)
 {
+	if (!str)
+		return ;
 	while (*str)
 		write(1, str++, 1);
 }

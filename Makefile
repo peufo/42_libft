@@ -32,6 +32,9 @@ $(DIR_BUILD):
 test: $(NAME) $(TESTS) $(OBJECTS)
 	@./test.sh
 
+test-v: $(NAME) $(TESTS) $(OBJECTS)
+	@./test.sh -v
+
 $(TESTS): $(DIR_TEST)/$(DIR_BUILD)/%: $(DIR_TEST)/%.c $(DIR_BUILD)/%.o | $(DIR_TEST)/$(DIR_BUILD)
 	@gcc $(FLAGS) -include $(DIR_TEST)/test.h $< -o $@ $(LIBS)
 
