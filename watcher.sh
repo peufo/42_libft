@@ -20,6 +20,7 @@ watch() {
 			STATE_A=$STATE_B
 			clear
 			info "HEY BRO 👋 $(date)"
+			./sync.sh
 
 			NORM_ERROR=$(sed -e '/.*: OK!/d' <(norminette))
 			if [[ $NORM_ERROR == "" ]] ; then

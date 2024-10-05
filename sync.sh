@@ -2,32 +2,14 @@
 
 sync() {
 
-	#TODO
-	#SYNC libft.h
-	: '
-		LIB="./libft.h"
-		FILE_NAME=${1#*src/}
-		FUNC_NAME=${FILE_NAME%.c*}
-		IMPLEMENTATION=$(grep "$FUNC_NAME(" $1)
-
-		if grep -Pq "$IMPLEMENTATION" $LIB ; then
-			return 0
-		fi
-
-		if grep -Pq "$FUNC_NAME(" $LIB ; then
-			sed -i "" "s/.*$FUNC_NAME(.*/$IMPLEMENTATION;/" $LIB
-		else
-			sed -i "" "s/#endif/$IMPLEMENTATION;\n#endif/" $LIB
-		fi
-	'
-
-	#SYNC Makefile wildcard
+	#SYNC Makefile SOURCES
+	SOURCES=$(ls src/*.c | tr '\n' ' ')
+	SED_COMMAND="s;^SOURCES	.*;SOURCES		=	$SOURCES;"
 	if [[ $(uname) == "Linux" ]];  then
-		sed -i "$(wc -l < Makefile),\$s;.*;# Les sources nécessaires à la compilation de mon programme sont 🥁🥁🥁 : $@ $;g" Makefile
+		sed -i "$SED_COMMAND" Makefile
 	else
-		sed -i "" "$(wc -l < Makefile),\$s;.*;# Les sources nécessaires à la compilation de mon programme sont 🥁🥁🥁 : $@ $;g" Makefile
+		sed -i "" "$SED_COMMAND" Makefile
 	fi
-
 }
 
 sync "$@"

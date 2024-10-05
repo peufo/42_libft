@@ -12,7 +12,7 @@ success() {
 
 test() {
 
-	info "\nMY TESTS"
+	info "\nMY TESTS\n"
 	TESTS_COUNT=0
 	TESTS_PASSED=0
 	for P in .test/build/*
@@ -39,7 +39,7 @@ test() {
 		warning "But $(($TESTS_COUNT - $TESTS_PASSED)) tests failed"
 	fi
 
-	info "\n\nUNITS TEST LIB (https://github.com/alelievr/libft-unit-test)\n"
+	info "\nUNITS TEST LIB (https://github.com/alelievr/libft-unit-test)\n"
 	cd ../libft-unit-tests
 	UNITS_TESTS=$(make f)
 	UNITS_FAILS=$(cat ./result.log | sed -E '/.+:\ +(\[OK\]\ |\{protected\})+/d')
