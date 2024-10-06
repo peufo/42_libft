@@ -18,25 +18,26 @@ add_function() {
 TEST_CONTENT="
 typedef struct s_test t_test;
 struct s_test {
-	TODO
+	char *data;
 };
 
 void test(t_test *args)
 {
-	if (1) {
-		printf(\"TODO\n\");
-		printf(\"expected: \n\", args->expected);
-		printf(\"received: \n\");
+	t_list *lst = ft_lstnew(args->data);
+	if (strcmp(lst->content, args->data)) {
+		printf("data=%s\n", args->data);
+		printf("expected: %s\n", args->data);
+		printf("received: %s\n", args->data);
 	}
 }
 
 int main()
 {
 	t_test tests[] = {
-		{
-
-			.expected = TODO
-		},
+		{ .data = "YOLO" },
+		{ .data = "" },
+		{ .data = "HAHA HOHO" },
+		{ .data = (void *)0 },
 	};
 
 	short count = sizeof(tests) / sizeof(tests[0]);
