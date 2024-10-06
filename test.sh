@@ -42,7 +42,7 @@ test() {
 	info "\nUNITS TEST LIB (https://github.com/alelievr/libft-unit-test)\n"
 	cd ../libft-unit-tests
 	UNITS_TESTS=$(make f)
-	UNITS_FAILS=$(cat ./result.log | sed -E '/.+:\ +(\[OK\]\ |\{protected\})+/d')
+	UNITS_FAILS=$(cat ./result.log | sed -E '/.+:\ *(\[OK\]\ |\{protected\})+/d')
 	
 	if [[ $1 == "-v" ]] ; then
 		echo "$UNITS_TESTS"
