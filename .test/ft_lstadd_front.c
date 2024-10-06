@@ -1,5 +1,3 @@
-
-
 int main()
 {
 	t_list *new = ft_lstnew("A");

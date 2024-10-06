@@ -10,7 +10,7 @@ FUNCTIONS	=	$(subst .c,,$(notdir $(SOURCES)))
 OBJECTS		=	$(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS		=	$(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
 
-SOURCES_BNS	=		src/ft_lstadd_front.c src/ft_lstnew.c 
+SOURCES_BNS	=		src/ft_lstadd_front.c src/ft_lstlast.c src/ft_lstnew.c 
 FUNCTIONS_BNS	=	$(subst .c,,$(notdir $(SOURCES_BNS)))
 OBJECTS_BNS		=	$(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS_BNS)))
 TESTS_BNS		=	$(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS_BNS))

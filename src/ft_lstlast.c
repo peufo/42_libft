@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/06 13:44:53 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/06 14:18:06 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/10/06 14:16:23 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/10/06 14:24:03 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	ft_lstlast(new)->next = *lst;
-	*lst = new;
+	if (!lst || !lst->next)
+		return (lst);
+	return (ft_lstlast(lst->next));
 }
