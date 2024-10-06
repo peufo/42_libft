@@ -6,11 +6,11 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 18:59:13 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 23:36:58 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dst, const void *src, t_size n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char	*_dst;
 	char	*_src;

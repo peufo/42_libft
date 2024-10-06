@@ -1,7 +1,7 @@
 void test(const void *s, int c)
 {
-	t_size ns[] = {0, 1, 3, 5, 11, 12, 13, 14, 15};
-	t_size len = strlen(s);
+	size_t ns[] = {0, 1, 3, 5, 11, 12, 13, 14, 15};
+	size_t len = strlen(s);
 	for (int i = 0; i < 9; i++)
 	{
 		if (len >= ns[i]) {;

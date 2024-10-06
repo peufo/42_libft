@@ -6,11 +6,11 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 18:40:28 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 23:34:25 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, t_size n)
+void	ft_bzero(void *s, size_t n)
 {
 	while (n--)
 		*((char *)s++) = 0;

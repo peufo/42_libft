@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 19:30:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/01 13:00:37 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_calloc(t_size count, t_size size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
-	t_size	len;
+	size_t	len;
 
 	if (count == 0 || size == 0)
 		len = 1;

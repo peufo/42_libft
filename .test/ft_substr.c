@@ -1,4 +1,4 @@
-void test(char *str, unsigned int start, t_size len)
+void test(char *str, unsigned int start, size_t len)
 {
 	char *res = ft_substr(str, start, len);
 	if (memcmp(res, str + start, len + 1))

@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void test(char *dst, char *src, t_size len)
+void test(char *dst, char *src, size_t len)
 {
 	char dst_a[100];
 	char dst_b[100];
 	strcpy(dst_a, dst);
 	strcpy(dst_b, dst);
-	t_size res_a = strlcat(dst_a, src, len);
-	t_size res_b = ft_strlcat(dst_b, src, len);
+	size_t res_a = strlcat(dst_a, src, len);
+	size_t res_b = ft_strlcat(dst_b, src, len);
 	if (res_a != res_b || strcmp(dst_a, dst_b) != 0)
 	{
 		printf("dst=%s src=%s len=%lu\n", dst, src, len);

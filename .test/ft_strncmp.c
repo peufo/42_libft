@@ -3,7 +3,7 @@ typedef struct s_test t_test;
 struct s_test {
 	const char *s1;
 	const char *s2;
-	t_size n;
+	size_t n;
 };
 
 void test(t_test *args)

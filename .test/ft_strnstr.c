@@ -1,4 +1,4 @@
-void test(const char *str, const char *find, t_size len)
+void test(const char *str, const char *find, size_t len)
 {
 	char *a = strnstr(str, find, len);
 	char *b = ft_strnstr(str, find, len);

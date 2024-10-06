@@ -1,4 +1,4 @@
-void test(const void *s1, const void *s2, t_size n)
+void test(const void *s1, const void *s2, size_t n)
 {
 	if (n > strlen(s1) || n > strlen(s2))
 		return;

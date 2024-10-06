@@ -6,14 +6,14 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 01:06:44 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/03 21:39:50 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strjoin(const char *a, const char *b)
 {
 	char	*str;
-	t_size	len;
+	size_t	len;
 
 	if (!a || !b)
 		return (0);

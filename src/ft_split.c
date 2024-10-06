@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 15:54:47 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/03 22:01:39 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static char	*str_cut(char *start, char *end)
 	return (cut);
 }
 
-static t_size	get_length(char const *str_origin, char c)
+static size_t	get_length(char const *str_origin, char c)
 {
-	t_size		length;
+	size_t		length;
 	char		*str;
 
 	length = 0;
@@ -66,7 +66,7 @@ static void	add_next(char **arr, char *str, char c)
 
 char	**ft_split(char const *str_origin, char c)
 {
-	t_size		length;
+	size_t		length;
 	char		**arr;
 
 	if (!str_origin)

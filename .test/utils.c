@@ -19,7 +19,7 @@ static t_data	*data_read(int fd)
 	return (data);
 }
 
-static t_size	data_len(t_data *data)
+static size_t	data_len(t_data *data)
 {
 	if (!data->next)
 		return (strlen(data->buffer));
@@ -42,7 +42,7 @@ char	*file_read(const char *path)
 {
 	int		fd = open(path, O_RDONLY);
 	t_data	*data;
-	t_size	len;
+	size_t	len;
 	char	*res;
 
 	if (fd == -1) return (0);

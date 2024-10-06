@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 10:18:07 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/04 23:52:40 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static short	is_in_charset(char c, const char *charset)
 
 char	*ft_strtrim(char const *str, char const *set)
 {
-	t_size		start;
-	t_size		end;
+	size_t		start;
+	size_t		end;
 
 	if (!str || !set)
 		return (0);

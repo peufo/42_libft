@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void test(void *s, t_size len)
+void test(void *s, size_t len)
 {
 	char *str_a = strdup(s);
 	char *str_b = strdup(s);

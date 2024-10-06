@@ -6,11 +6,11 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:07:30 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/04 22:19:15 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *str, const char *find, t_size len)
+char	*ft_strnstr(const char *str, const char *find, size_t len)
 {
 	size_t	find_len;
 

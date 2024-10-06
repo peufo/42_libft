@@ -1,4 +1,4 @@
-void test(char *str, int c, t_size len)
+void test(char *str, int c, size_t len)
 {
 	char *str_a = strdup(str);
 	char *str_b = strdup(str);

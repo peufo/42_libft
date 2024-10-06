@@ -1,11 +1,11 @@
-void test(char *src, t_size len)
+void test(char *src, size_t len)
 {
 	char *a = malloc(len + 1);
 	char *b = malloc(len + 1);
 	*a = '\0';
 	*b = '\0';
-	t_size res_a = strlcpy(a, src, len);
-	t_size res_b = ft_strlcpy(b, src, len);
+	size_t res_a = strlcpy(a, src, len);
+	size_t res_b = ft_strlcpy(b, src, len);
 	if (res_a != res_b || strcmp(a, b) != 0)
 	{
 		printf("len=%lu src=%s\n", len, src);

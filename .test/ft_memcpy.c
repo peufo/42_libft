@@ -1,4 +1,4 @@
-void test(const void *src, t_size len)
+void test(const void *src, size_t len)
 {
 	void *dst_a = malloc(strlen(src));
 	void *dst_b = malloc(strlen(src));

@@ -8,9 +8,9 @@ void print_bytes(void *ptr, int size)
     printf("\n");
 }
 
-void test(const void *src, t_size len)
+void test(const void *src, size_t len)
 {
-	t_size src_len = ft_strlen(src);
+	size_t src_len = ft_strlen(src);
 	void *dst_a = ft_calloc(1, src_len);
 	void *dst_b = ft_calloc(1, src_len);
 	ft_memmove(dst_b, src, len);
@@ -30,7 +30,7 @@ void test(const void *src, t_size len)
 
 
 
-void test_overlap(const void *src, int delta, t_size len)
+void test_overlap(const void *src, int delta, size_t len)
 {
 	char src_a[100] = { '\0' };
 	char src_b[100] = { '\0' };

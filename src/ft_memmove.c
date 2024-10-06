@@ -6,11 +6,11 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:55:54 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/04 15:26:36 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, t_size n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	char	*_dst;
 	char	*_src;

@@ -6,16 +6,16 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 23:31:19 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 23:37:18 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_size	ft_strlcat(char *dst, const char *src, t_size dsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 {
 	const char	*dst_origin;
 	const char	*src_origin;
-	t_size		n;
-	t_size		dst_len;
+	size_t		n;
+	size_t		dst_len;
 
 	dst_origin = dst;
 	src_origin = src;
