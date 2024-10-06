@@ -1,4 +1,3 @@
-
 static short that_run_baby = 0;
 
 void	del_content(void *content) {
