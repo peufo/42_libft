@@ -7,7 +7,7 @@ sync() {
 	SOURCES_BONUS=$(ls src/ft_lst*.c | tr '\n' ' ')
 
 	SED_COMMAND="s;^SOURCES	.*;SOURCES		=	$SOURCES;"
-	SED_COMMAND_BONUS="s;^SOURCES_BNS	.*;SOURCES_BNS	=		$SOURCES_BONUS;"
+	SED_COMMAND_BONUS="s;^SOURCES_BNS	.*;SOURCES_BNS		=	$SOURCES_BONUS;"
 	if [[ $(uname) == "Linux" ]];  then
 		sed -i "$SED_COMMAND" Makefile
 		sed -i "$SED_COMMAND_BONUS" Makefile
