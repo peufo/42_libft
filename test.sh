@@ -10,26 +10,34 @@ success() {
 	echo -e "\033[32m$1\033[0m"
 }
 
-test() {
+run_test() {
+	PATH_NAME=$1
+	VERBOSE=$2
+	RESULT=$($PATH_NAME)
+	TEST_NAME=${PATH_NAME#*.test/build/}
+	((TESTS_COUNT++))
+	if [[ $RESULT == "" ]] ; then
+		((TESTS_PASSED++))
+		if $VERBOSE ; then
+			success "$TEST_NAME\tOK"
+		fi
+	else
+		warning "$TEST_NAME\tFAIL" 
+		echo -e "./src/$TEST_NAME.c ./.test/$TEST_NAME.c\n"
+		echo -e "$RESULT\n"
+	fi
+}
 
+test() {
 	info "\nMY TESTS\n"
+	VERBOSE=$([[ $@ =~ "-v" ]] && echo true || echo false)
+	TEST_NAME=$( echo $@ | sed 's/.*-n \(\w+\)/\1/')
+	echo "name: $TEST_NAME"
 	TESTS_COUNT=0
 	TESTS_PASSED=0
 	for P in .test/build/*
 	do
-		RESULT=$($P)
-		TEST_NAME=${P#*.test/build/}
-		((TESTS_COUNT++))
-		if [[ $RESULT == "" ]] ; then
-			((TESTS_PASSED++))
-			if [[ $1 == "-v" ]] ; then
-				success "$TEST_NAME\tOK"
-			fi
-		else
-			warning "$TEST_NAME\tFAIL" 
-			echo -e "./src/$TEST_NAME.c ./.test/$TEST_NAME.c\n"
-			echo -e "$RESULT\n"
-		fi
+		run_test "$P" "$VERBOSE"
 	done
 	
 	if [[ $TESTS_PASSED == $TESTS_COUNT ]]; then
@@ -44,7 +52,7 @@ test() {
 	UNITS_TESTS=$(make f)
 	UNITS_FAILS=$(cat ./result.log | sed -E '/.+:\ *(\[OK\]\ |\{protected\})+/d')
 	
-	if [[ $1 == "-v" ]] ; then
+	if $VERBOSE ; then
 		echo "$UNITS_TESTS"
 	else
 		warning "$UNITS_FAILS"
