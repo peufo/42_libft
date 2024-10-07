@@ -7,8 +7,8 @@ add_function() {
 		return
 	fi
 
-	echo "Create file ./src/$FUNCTION_NAME"
-	touch "./src/$FUNCTION_NAME.c"
+	echo "Create file $FUNCTION_NAME.c"
+	touch "$FUNCTION_NAME.c"
 
 	echo "Create file ./.test/$FUNCTION_NAME"
 	echo "$TEST_CONTENT" > ./.test/$FUNCTION_NAME.c

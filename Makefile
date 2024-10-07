@@ -1,16 +1,16 @@
 NAME = libft.a
 NAME_SO = libft.so
-DIR_SRC = src
+DIR_SRC = ./
 DIR_BUILD = build
 DIR_TEST = .test
 FLAGS = -Wall -Wextra -Werror -include libft.h
 
-SOURCES		=	src/ft_atoi.c src/ft_bzero.c src/ft_calloc.c src/ft_isalnum.c src/ft_isalpha.c src/ft_isascii.c src/ft_isdigit.c src/ft_isprint.c src/ft_itoa.c src/ft_memchr.c src/ft_memcmp.c src/ft_memcpy.c src/ft_memmove.c src/ft_memset.c src/ft_putchar_fd.c src/ft_putendl_fd.c src/ft_putnbr_fd.c src/ft_putstr.c src/ft_putstr_fd.c src/ft_split.c src/ft_strchr.c src/ft_strdup.c src/ft_striteri.c src/ft_strjoin.c src/ft_strlcat.c src/ft_strlcpy.c src/ft_strlen.c src/ft_strmapi.c src/ft_strncmp.c src/ft_strnstr.c src/ft_strrchr.c src/ft_strtrim.c src/ft_substr.c src/ft_tolower.c src/ft_toupper.c 
+SOURCES		=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c 
 FUNCTIONS	=	$(subst .c,,$(notdir $(SOURCES)))
 OBJECTS		=	$(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 TESTS		=	$(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS))
 
-SOURCES_BNS		=	src/ft_lstadd_back.c src/ft_lstadd_front.c src/ft_lstclear.c src/ft_lstdelone.c src/ft_lstiter.c src/ft_lstlast.c src/ft_lstmap.c src/ft_lstnew.c src/ft_lstsize.c 
+SOURCES_BNS		=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c 
 FUNCTIONS_BNS	=	$(subst .c,,$(notdir $(SOURCES_BNS)))
 OBJECTS_BNS		=	$(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS_BNS)))
 TESTS_BNS		=	$(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS_BNS))
@@ -29,19 +29,19 @@ $(NAME): $(OBJECTS)
 bonus: $(OBJECTS_BNS)
 	@ar -cr $(NAME) $(OBJECTS_BNS)
 
-so: $(OBJECTS)
-	@cc -nostartfiles -shared -o libft.so $(OBJECTS)
-
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.c | $(DIR_BUILD)
 	@cc $(FLAGS) -c $^ -o $@
 
 $(DIR_BUILD):
 	@mkdir $(DIR_BUILD)
 
-test: bonus $(TESTS) $(TESTS_BNS)
+so: $(OBJECTS)
+	@cc -nostartfiles -shared -o libft.so $(OBJECTS)
+
+test: all $(TESTS) $(TESTS_BNS)
 	@./test.sh
 
-test-v: bonus $(TESTS) $(TESTS_BNS)
+test-v: all $(TESTS) $(TESTS_BNS)
 	@./test.sh -v
 
 $(DIR_TEST)/$(DIR_BUILD)/%: $(DIR_TEST)/%.c $(DIR_BUILD)/%.o | $(DIR_TEST)/$(DIR_BUILD)

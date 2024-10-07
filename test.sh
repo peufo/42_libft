@@ -23,7 +23,7 @@ run_test() {
 		fi
 	else
 		warning "$TEST_NAME\tFAIL" 
-		echo -e "./src/$TEST_NAME.c ./.test/$TEST_NAME.c\n"
+		echo -e "./$TEST_NAME.c ./.test/$TEST_NAME.c\n"
 		echo -e "$RESULT\n"
 	fi
 }
