@@ -19,11 +19,10 @@ overwrite_2() {
 test() {
 	info "\nMY TESTS\n"
 	VERBOSE=$([[ $@ =~ "-v" ]] && echo true || echo false)
-	TEST_NAME=$( echo $@ | sed 's/.*-n \(\w+\)/\1/')
-	echo "name: $TEST_NAME"
 
 	TESTS_COUNT=0
 	TESTS_PASSED=0
+
 	run_test() {
 		PATH_NAME=$1
 		VERBOSE=$2
@@ -38,7 +37,7 @@ test() {
 				overwrite "$(success "$TEST_NAME\tOK")"
 			fi
 		else
-			if ! $VERBOSE ; then overwrite_2
+			if ! $VERBOSE ; then overwrite
 			fi
 			warning "$TEST_NAME\tFAIL" 
 			echo -e "./$TEST_NAME.c ./.test/$TEST_NAME.c\n"
@@ -50,13 +49,15 @@ test() {
 	if [ ! -d  "$TESTS_BUILD_DIR" ] ; then
 		warning "Tests are not compiled. Please run \"make test\""
 		return
-	else
-		for P in $TESTS_BUILD_DIR/*
-		do
-			run_test "$P" "$VERBOSE"
-		done
-		if ! $VERBOSE ; then overwrite_2
-		fi
+	fi
+	
+	if ! $VERBOSE ; then echo ""
+	fi
+	for P in $TESTS_BUILD_DIR/*
+	do
+		run_test "$P" "$VERBOSE"
+	done
+	if ! $VERBOSE ; then overwrite_2
 	fi
 
 	if [[ $TESTS_PASSED == $TESTS_COUNT ]]; then
