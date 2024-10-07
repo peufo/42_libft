@@ -54,6 +54,8 @@ test() {
 	
 	if $VERBOSE ; then
 		echo "$UNITS_TESTS"
+	elif [[ $UNITS_FAILS == "" ]] ; then
+		success "NO FAILS DETECTED 🎉🎉🎉"
 	else
 		warning "$UNITS_FAILS"
 	fi

@@ -6,11 +6,11 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:58:27 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/09/27 23:34:36 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/07 21:38:18 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	is_space(char c)
+static char	is_space(char c)
 {
 	return (c == ' '
 		|| c == '\t'

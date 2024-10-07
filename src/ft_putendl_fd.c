@@ -6,11 +6,9 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 00:19:30 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/06 00:54:38 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/07 21:39:51 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_putendl_fd(char *s, int fd)
 {

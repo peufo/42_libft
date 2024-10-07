@@ -6,11 +6,9 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:18:08 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/05 22:19:40 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/07 21:39:40 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {
