@@ -21,19 +21,19 @@ ifeq ($(OS),Linux)
 	LIBS += -lbsd -ldl -lpthread -lm
 endif
 
-all: $(NAME)
+all: $(NAME) bonus
 
 $(NAME): $(OBJECTS)
 	@ar -cr $@ $^
 
-bonus: $(NAME) $(OBJECTS_BNS)
+bonus: $(OBJECTS_BNS)
 	@ar -cr $(NAME) $(OBJECTS_BNS)
 
 so: $(OBJECTS)
-	@gcc -nostartfiles -shared -o libft.so $(OBJECTS)
+	@cc -nostartfiles -shared -o libft.so $(OBJECTS)
 
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.c | $(DIR_BUILD)
-	@gcc $(FLAGS) -c $^ -o $@
+	@cc $(FLAGS) -c $^ -o $@
 
 $(DIR_BUILD):
 	@mkdir $(DIR_BUILD)
@@ -45,7 +45,7 @@ test-v: bonus $(TESTS) $(TESTS_BNS)
 	@./test.sh -v
 
 $(DIR_TEST)/$(DIR_BUILD)/%: $(DIR_TEST)/%.c $(DIR_BUILD)/%.o | $(DIR_TEST)/$(DIR_BUILD)
-	@gcc $(FLAGS) -include $(DIR_TEST)/test.h $< -o $@ $(LIBS)
+	@cc $(FLAGS) -include $(DIR_TEST)/test.h $< -o $@ $(LIBS)
 
 $(DIR_TEST)/$(DIR_BUILD):
 	@mkdir $(DIR_TEST)/$(DIR_BUILD)
