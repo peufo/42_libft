@@ -39,7 +39,7 @@ test() {
 		else
 			if ! $VERBOSE ; then overwrite
 			fi
-			warning "$TEST_NAME\tFAIL" 
+			warning "$TEST_NAME\tFAIL"
 			echo -e "./$TEST_NAME.c ./.test/$TEST_NAME.c\n"
 			echo -e "$RESULT\n"
 		fi
@@ -50,7 +50,7 @@ test() {
 		warning "Tests are not compiled. Please run \"make test\""
 		return
 	fi
-	
+
 	if ! $VERBOSE ; then echo ""
 	fi
 	for P in $TESTS_BUILD_DIR/*
@@ -67,18 +67,54 @@ test() {
 		warning "But $(($TESTS_COUNT - $TESTS_PASSED)) tests failed"
 	fi
 
-	info "\nUNITS TEST LIB (https://github.com/alelievr/libft-unit-test)\n"
-	cd ../libft-unit-tests
-	UNITS_TESTS=$(make f | tr -d '\0')
-	UNITS_FAILS=$(cat ./result.log | sed -E '/.+:\ *(\[OK\]\ |\{protected\})+/d')
-	
+	# ENSURE TEST EXTERNE DIR existe
+	EXT_TEST_DIR=".test/extern"
+	if [ ! -d "$EXT_TEST_DIR" ] ; then
+		mkdir "$EXT_TEST_DIR"
+		ln -s "$(pwd)" "$EXT_TEST_DIR/libft"
+	fi
+
+	EXT_TEST_REPO="https://github.com/alelievr/libft-unit-test"
+	EXT_TEST="$EXT_TEST_DIR/libft-unit-tests"
+	info "\nUNITS TEST LIB ($EXT_TEST_REPO)\n"
+	if [ ! -d "$EXT_TEST" ] ; then
+		git clone "$EXT_TEST_REPO" "$EXT_TEST"
+	fi
+	EXT_TEST_OUTPUT=$(make -C "$EXT_TEST" f | tr -d '\0')
+	EXT_TEST_FAILS=$(cat "$EXT_TEST/result.log" | sed -E '/.+:\ *(\[OK\]\ |\{protected\})+/d')
 	if $VERBOSE ; then
-		echo "$UNITS_TESTS"
-	elif [[ $UNITS_FAILS == "" ]] ; then
+		echo "$EXT_TEST_OUTPUT"
+	elif [[ $EXT_TEST_FAILS == "" ]] ; then
 		success "NO FAILS DETECTED 🎉🎉🎉"
 	else
-		warning "$UNITS_FAILS"
+		warning "$EXT_TEST_FAILS"
 	fi
+	: '
+	EXT_TEST_REPO="https://github.com/y3ll0w42/libft-war-machine"
+	EXT_TEST="$EXT_TEST_DIR/libft-war-machine"
+	info "\nLIBFT WAR MACHINE ($EXT_TEST_REPO)\n"
+	if [ ! -d "$EXT_TEST" ] ; then
+		git clone "$EXT_TEST_REPO" "$EXT_TEST"
+		echo "$WAR_MACHINE_CONFIG" > "$EXT_TEST/my_config.sh"
+	fi
+
+	"$EXT_TEST/grademe.sh"
+	'
 }
+
+WAR_MACHINE_CONFIG="
+#!/bin/bash
+PATH_LIBFT=\"$(pwd)\"
+HEADER_DIR=\"\"
+SRC_DIR=\"\"
+COLOR_OK=\"\${GREEN}\"
+COLOR_FAIL=\"\${RED}\"
+COLOR_WARNING=\"\${YELLOW}\"
+COLOR_TITLE=\"\${BOLD}\${BLUE}\"
+COLOR_FUNC=\"\${CYAN}\"
+COLOR_PART=\"\${UNDERLINE}\${PURPLE}\"
+COLOR_TOTAL=\"\${BOLD}\${YELLOW}\"
+COLOR_DEEPTHOUGHT_PATH=\"\${BOLD}\${PURPLE}\"
+"
 
 test $@
