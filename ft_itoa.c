@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
+/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:29:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/05 00:16:08 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:31:29 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static char	*handle_positive(char *str, int n)
 {

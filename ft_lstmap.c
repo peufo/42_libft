@@ -6,9 +6,11 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:28:12 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/08 13:55:43 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:32:02 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

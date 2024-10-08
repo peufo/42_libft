@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
+/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 10:18:07 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/06 09:02:49 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:33:57 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static short	is_in_charset(char c, const char *charset)
 {

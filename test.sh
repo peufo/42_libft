@@ -71,8 +71,10 @@ test() {
 	EXT_TEST_DIR=".test/extern"
 	if [ ! -d "$EXT_TEST_DIR" ] ; then
 		mkdir "$EXT_TEST_DIR"
-		ln -s "$(pwd)" "$EXT_TEST_DIR/libft"
+		# ln -s "$(pwd)" "$EXT_TEST_DIR/libft"
 	fi
+
+	# LIB-UNIT-TESTS
 
 	EXT_TEST_REPO="https://github.com/alelievr/libft-unit-test"
 	EXT_TEST="$EXT_TEST_DIR/libft-unit-tests"
@@ -89,7 +91,9 @@ test() {
 	else
 		warning "$EXT_TEST_FAILS"
 	fi
-	: '
+
+	# WAR-MACHINE
+
 	EXT_TEST_REPO="https://github.com/y3ll0w42/libft-war-machine"
 	EXT_TEST="$EXT_TEST_DIR/libft-war-machine"
 	info "\nLIBFT WAR MACHINE ($EXT_TEST_REPO)\n"
@@ -97,9 +101,8 @@ test() {
 		git clone "$EXT_TEST_REPO" "$EXT_TEST"
 		echo "$WAR_MACHINE_CONFIG" > "$EXT_TEST/my_config.sh"
 	fi
-
-	"$EXT_TEST/grademe.sh"
-	'
+	sed -i "" "/clear/d" "$EXT_TEST/grademe.sh"
+	"$EXT_TEST/grademe.sh" -u ft_strnstr
 }
 
 WAR_MACHINE_CONFIG="
@@ -107,6 +110,7 @@ WAR_MACHINE_CONFIG="
 PATH_LIBFT=\"$(pwd)\"
 HEADER_DIR=\"\"
 SRC_DIR=\"\"
+PATH_DEEPTHOUGHT=\"\${PATH_TEST}\"
 COLOR_OK=\"\${GREEN}\"
 COLOR_FAIL=\"\${RED}\"
 COLOR_WARNING=\"\${YELLOW}\"

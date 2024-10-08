@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
+/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 09:26:23 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/06 13:41:28 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:32:05 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {
