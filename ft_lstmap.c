@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:28:12 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/08 13:50:19 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/08 13:55:43 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	else
 		new_lst = ft_lstnew(0);
 	if (del && lst->content)
-	{
 		del(lst->content);
-		lst->content = (void *)0;
-	}
 	if (lst->next)
 		new_lst->next = ft_lstmap(lst->next, f, del);
 	return (new_lst);
