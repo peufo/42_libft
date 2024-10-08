@@ -57,7 +57,7 @@ test() {
 	do
 		run_test "$P" "$VERBOSE"
 	done
-	if ! $VERBOSE ; then overwrite_2
+	if ! $VERBOSE ; then overwrite
 	fi
 
 	if [[ $TESTS_PASSED == $TESTS_COUNT ]]; then
@@ -69,7 +69,7 @@ test() {
 
 	info "\nUNITS TEST LIB (https://github.com/alelievr/libft-unit-test)\n"
 	cd ../libft-unit-tests
-	UNITS_TESTS=$(make f)
+	UNITS_TESTS=$(make f | tr -d '\0')
 	UNITS_FAILS=$(cat ./result.log | sed -E '/.+:\ *(\[OK\]\ |\{protected\})+/d')
 	
 	if $VERBOSE ; then

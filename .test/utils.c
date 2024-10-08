@@ -26,15 +26,16 @@ static size_t	data_len(t_data *data)
 	return (BUFFER_SIZE + data_len(data->next));
 }
 
-static void	data_write(char *dst, t_data *data)
+static void	data_cat(char *dst, t_data *data)
 {
 	int		limit = BUFFER_SIZE;
 	char	*buffer = data->buffer;
-	while (limit-- && *(buffer))
+	// 0x05 is ENQ (enquiry) => end of transmission in linux ? 🧙
+	while (limit-- && *(buffer) && *(buffer) != 0x05)
 		*(dst++) = *(buffer++);
 	free(data->buffer);
 	if (data->next)
-		data_write(dst, data->next);
+		data_cat(dst, data->next);
 	free(data);
 }
 
@@ -50,7 +51,7 @@ char	*file_read(const char *path)
 	close(fd);
 	len = data_len(data);
 	res = malloc(len);
-	data_write(res, data);
+	data_cat(res, data);
 	return (res);
 }
 

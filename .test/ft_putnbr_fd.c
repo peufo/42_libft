@@ -22,6 +22,8 @@ void test(t_test *args)
 	if (strcmp(res, args->expected)) {
 		printf("expected: %s\n", args->expected);
 		printf("received: %s\n", res);
+		print_bytes(args->expected, strlen(args->expected));
+		print_bytes(res, strlen(res));
 	}
 	remove(args->path);
 }
