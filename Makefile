@@ -18,7 +18,7 @@ TESTS_BNS		=	$(addprefix $(DIR_TEST)/$(DIR_BUILD)/, $(FUNCTIONS_BNS))
 OS			=	$(shell uname -s)
 LIBS = -L. -lft
 ifeq ($(OS),Linux)
-	LIBS += -lbsd
+	LIBS += -lbsd -ldl
 endif
 
 all: $(NAME) bonus
