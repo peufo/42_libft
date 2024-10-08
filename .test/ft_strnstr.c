@@ -1,12 +1,17 @@
+#include "../libft.h"
+
 void test(const char *str, const char *find, size_t len)
 {
 	char *a = strnstr(str, find, len);
 	char *b = ft_strnstr(str, find, len);
 
 	if (a != b) {
-		printf("str=%s find=%s len=%lu\n" ,str, find, len);
+		write(1, "FAIL\n", 6);
+
+		printf("str=%s find=%s len=%lu\n", str, find, len);
 		printf("accepted: %s\n", a);
 		printf("received: %s\n", b);
+
 	}
 }
 
@@ -43,8 +48,7 @@ int main()
 	test(s, s, 2);
 	test(s, s, 3);
 	test(s, s, 4);
-	test(NULL, NULL, 4);
-	test("HELLO", NULL, 4);
-	test(NULL, "HELLO", 4);
+	test("lorem ipsum dolor sit amet", "lorem", 15);
+
 }
 

@@ -71,7 +71,7 @@ test() {
 	EXT_TEST_DIR=".test/extern"
 	if [ ! -d "$EXT_TEST_DIR" ] ; then
 		mkdir "$EXT_TEST_DIR"
-		# ln -s "$(pwd)" "$EXT_TEST_DIR/libft"
+		ln -s "$(pwd)" "$EXT_TEST_DIR/libft"
 	fi
 
 	# LIB-UNIT-TESTS
@@ -102,7 +102,7 @@ test() {
 		echo "$WAR_MACHINE_CONFIG" > "$EXT_TEST/my_config.sh"
 	fi
 	sed -i "" "/clear/d" "$EXT_TEST/grademe.sh"
-	"$EXT_TEST/grademe.sh" -u ft_strnstr
+	"$EXT_TEST/grademe.sh" -s -u
 }
 
 WAR_MACHINE_CONFIG="
@@ -121,4 +121,4 @@ COLOR_TOTAL=\"\${BOLD}\${YELLOW}\"
 COLOR_DEEPTHOUGHT_PATH=\"\${BOLD}\${PURPLE}\"
 "
 
-test $@
+test "$@"
