@@ -30,7 +30,11 @@ static void	data_cat(char *dst, t_data *data)
 {
 	int		limit = BUFFER_SIZE;
 	char	*buffer = data->buffer;
-	// 0x05 is ENQ (enquiry) => end of transmission in linux ? 🧙
+	
+	// 0x03 is ETX (end of text)
+	// 0x04 is EOT (end of transmission)
+	// 0x05 is ENQ (enquiry)
+	// 0x06 is ACK (acknowledge)
 	while (limit-- && *(buffer) && *(buffer) != 0x05)
 		*(dst++) = *(buffer++);
 	free(data->buffer);
