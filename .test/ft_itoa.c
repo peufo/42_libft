@@ -4,15 +4,25 @@ struct s_test {
 	char *expected;
 };
 
+void	ft_print_result(char const *s)
+{
+	int		len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	write(1, s, len);
+}
+
 void test(t_test *args)
 {
 	char *res = ft_itoa(args->n);
-
-	if (strcmp(res, args->expected) != 0) {
+	if (strcmp(res, args->expected)) {
 		printf("n=%d\n", args->n);
 		printf("expected:%s \n", args->expected);
 		printf("received:%s \n\n", res);
 	}
+	free(res);
 }
 
 int main()

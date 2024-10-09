@@ -51,11 +51,13 @@ static short	get_malloc_len(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
+	short	len;
 
-	str = malloc(get_malloc_len(n));
+	len = get_malloc_len(n);
+	str = malloc(len);
 	if (!str)
 		return (NULL);
-	str += 12;
+	str += len;
 	*(--str) = '\0';
 	if (n > 0)
 		return (handle_positive(str, n));
