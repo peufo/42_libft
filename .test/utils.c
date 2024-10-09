@@ -35,7 +35,7 @@ static void	data_cat(char *dst, t_data *data)
 	// 0x04 is EOT (end of transmission)
 	// 0x05 is ENQ (enquiry)
 	// 0x06 is ACK (acknowledge)
-	while (limit-- && *(buffer) && *(buffer) != 0x05)
+	while (limit-- && *(buffer) && *(buffer) != 0x05 && *(buffer) != 0x06)
 		*(dst++) = *(buffer++);
 	free(data->buffer);
 	if (data->next)
