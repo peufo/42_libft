@@ -102,7 +102,7 @@ test() {
 		echo "$WAR_MACHINE_CONFIG" > "$EXT_TEST/my_config.sh"
 	fi
 	sed -i "/clear/d" "$EXT_TEST/grademe.sh"
-	"$EXT_TEST/grademe.sh" -s -u
+	"$EXT_TEST/grademe.sh" -s -u ft_lstmap
 }
 
 WAR_MACHINE_CONFIG="
