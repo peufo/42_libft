@@ -1,3 +1,5 @@
+#include "../libft.h"
+
 void test(const void *s, int c)
 {
 	size_t ns[] = {0, 1, 3, 5, 11, 12, 13, 14, 15};
@@ -18,6 +20,7 @@ void test(const void *s, int c)
 
 int main()
 {
+
 	test("", 0);
 	test("", 1);
 	test("", 1000);

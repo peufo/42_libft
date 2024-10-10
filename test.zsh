@@ -72,22 +72,21 @@ test() {
 		fi
 	}
 
-	TESTS_BUILD_DIR=".test/build"
-	if [ ! -d  "$TESTS_BUILD_DIR" ] ; then
-		info "Run \"make test\""
-		make test
-		return
-	fi
-
 	# ENSURE TEST EXTERNE DIRECTORY STATE
-	EXT_TEST_DIR=".test/extern"
+	EXT_TEST_DIR="/tmp/libft-tests"
 	if $is_reset ; then
 		rm -rf "$EXT_TEST_DIR"
 		info "$EXT_TEST_DIR is removed"
 		return
 	fi
 	if [ ! -d "$EXT_TEST_DIR" ] ; then
-		mkdir -P "$EXT_TEST_DIR"
+		mkdir "$EXT_TEST_DIR"
+	fi
+
+	TESTS_BUILD_DIR="./.test/build/"
+	if [ ! -d  "$TESTS_BUILD_DIR" ] ; then
+		info "Run \"make test-build\""
+		make test-build
 	fi
 
 	# MY OWN TESTS
@@ -109,20 +108,17 @@ test() {
 		fi
 	fi
 
-
-
 	# LIB-UNIT-TESTS
 	if [[ $lib == "all" || $lib == "unit" ]] ; then
 		EXT_TEST_REPO="https://github.com/alelievr/libft-unit-test"
-		EXT_TEST="$EXT_TEST_DIR/libft-unit-tests"
-
-		sed_i "s;LIBFTDIR	=	../libft;LIBFTDIR	=	$(pwd);" "$EXT_TEST/Makefile"
+		EXT_TEST="$EXT_TEST_DIR/libft-unit-tests/"
 
 		info "\nUNITS TEST LIB ($EXT_TEST_REPO)\n"
 		if [ ! -d "$EXT_TEST" ] ; then
 			git clone --depth=1 "$EXT_TEST_REPO" "$EXT_TEST"
-			rm -rf "$EXT_TEST/.git"
+			#rm -rf "$EXT_TEST/.git"
 		fi
+		sed_i "s;LIBFTDIR	=	../libft;LIBFTDIR	=	$(pwd);" "$EXT_TEST/Makefile"
 		EXT_TEST_OUTPUT=$(make -C "$EXT_TEST" f | tr -d '\0')
 		EXT_TEST_FAILS=$(cat "$EXT_TEST/result.log" | sed -E '/.+:\ *(\[OK\]\ |\{protected\})+/d')
 		if $is_verbose ; then
@@ -137,36 +133,39 @@ test() {
 	# WAR-MACHINE
 	if [[ $lib == "all" || $lib == "war" ]] ; then
 		EXT_TEST_REPO="https://github.com/y3ll0w42/libft-war-machine"
-		EXT_TEST="$EXT_TEST_DIR/libft-war-machine"
+		EXT_SPACE="$EXT_TEST_DIR/space_war"
+		EXT_TEST="$EXT_SPACE/libft-war-machine"
 		info "\nLIBFT WAR MACHINE ($EXT_TEST_REPO)\n"
-		if [ ! -d "$EXT_TEST" ] ; then
-			git clone --depth=1 "$EXT_TEST_REPO" "$EXT_TEST"
-			rm -rf "$EXT_TEST/.git"
-			echo "$WAR_MACHINE_CONFIG" > "$EXT_TEST/my_config.sh"
-		fi
-		#sed_i "/clear/d" "$EXT_TEST/grademe.sh"
-		"$EXT_TEST/grademe.sh" -s -u
+		rm -rf "$EXT_SPACE"
+		mkdir -p "$EXT_SPACE"
+		cp ./* "$EXT_SPACE"
+		git clone --depth=1 "$EXT_TEST_REPO" "$EXT_TEST"
+		echo "$WAR_MACHINE_CONFIG" > "$EXT_TEST/my_config.sh"
+		sed_i "/clear/d" "$EXT_TEST/grademe.sh"
+		bash -e "$EXT_TEST/grademe.sh" -s -u
 	fi
 
 	# LIBFT-TESTER
 	if [[ $lib == "all" || $lib == "tester" ]] ; then
 		EXT_TEST_REPO="https://github.com/Tripouille/libftTester"
-		EXT_TEST="$EXT_TEST_DIR/libftTester"
+		EXT_SPACE="$EXT_TEST_DIR/space_tester"
+		EXT_TEST="$EXT_SPACE/libftTester" 
 		info "\nLIBFT-TESTER ($EXT_TEST_REPO)\n"
-		if [ ! -d "$EXT_TEST" ] ; then
-			git clone --depth=1 "$EXT_TEST_REPO" "$EXT_TEST"
-			rm -rf "$EXT_TEST/.git"
-			sed_i "s;LIBFT_PATH		= .*;LIBFT_PATH	=	$(pwd);" "$EXT_TEST/Makefile"
-		fi
+		rm -rf "$EXT_SPACE"
+		mkdir -p "$EXT_SPACE"
+		cp ./* "$EXT_SPACE"
+		rm -f "$EXT_SPACE/libft.so"
+		git clone --depth=1 "$EXT_TEST_REPO" "$EXT_TEST"
 		make -C "$EXT_TEST" a
 	fi
 }
 
+
+
 WAR_MACHINE_CONFIG="
 #!/bin/bash
-PATH_LIBFT=\"$(pwd)\"
+PATH_LIBFT=\"../\"
 HEADER_DIR=\"\"
-SRC_DIR=\"\"
 PATH_DEEPTHOUGHT=\"\${PATH_TEST}\"
 COLOR_OK=\"\${GREEN}\"
 COLOR_FAIL=\"\${RED}\"
@@ -176,6 +175,7 @@ COLOR_FUNC=\"\${CYAN}\"
 COLOR_PART=\"\${UNDERLINE}\${PURPLE}\"
 COLOR_TOTAL=\"\${BOLD}\${YELLOW}\"
 COLOR_DEEPTHOUGHT_PATH=\"\${BOLD}\${PURPLE}\"
+CUSTOM_DIRECTORY=0
 "
 
 test "$@"

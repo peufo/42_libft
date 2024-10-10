@@ -38,6 +38,8 @@ $(DIR_BUILD):
 so: $(OBJECTS)
 	@cc -nostartfiles -shared -o libft.so $(OBJECTS)
 
+test-build: all $(TESTS) $(TESTS_BNS)
+
 test: all $(TESTS) $(TESTS_BNS)
 	@./test.zsh
 
@@ -57,5 +59,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	rm -f $(NAME_SO)
+	rm -rf $(DIR_TEST)/extern
 
 re: fclean all
