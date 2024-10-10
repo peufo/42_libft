@@ -17,6 +17,8 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ptr;
 	size_t	len;
 
+	if ((long)count < 0 && (long)size < 0)
+		return (0);
 	if (count == 0 || size == 0)
 		len = 1;
 	else
