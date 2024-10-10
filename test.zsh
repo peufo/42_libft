@@ -79,6 +79,17 @@ test() {
 		return
 	fi
 
+	# ENSURE TEST EXTERNE DIRECTORY STATE
+	EXT_TEST_DIR=".test/extern"
+	if $is_reset ; then
+		rm -rf "$EXT_TEST_DIR"
+		info "$EXT_TEST_DIR is removed"
+		return
+	fi
+	if [ ! -d "$EXT_TEST_DIR" ] ; then
+		mkdir -P "$EXT_TEST_DIR"
+	fi
+
 	# MY OWN TESTS
 	if [[ $lib == "all" || $lib == "own" ]] ; then
 		info "\nMY OWN TESTS\n"
@@ -98,15 +109,7 @@ test() {
 		fi
 	fi
 
-	# ENSURE TEST EXTERNE DIR STATE
-	EXT_TEST_DIR=".test/extern"
-	if $is_reset ; then
-		rm -rf "$EXT_TEST_DIR"
-		return
-	fi
-	if [ ! -d "$EXT_TEST_DIR" ] ; then
-		mkdir "$EXT_TEST_DIR"
-	fi
+
 
 	# LIB-UNIT-TESTS
 	if [[ $lib == "all" || $lib == "unit" ]] ; then
@@ -153,10 +156,9 @@ test() {
 		if [ ! -d "$EXT_TEST" ] ; then
 			git clone --depth=1 "$EXT_TEST_REPO" "$EXT_TEST"
 			rm -rf "$EXT_TEST/.git"
-			echo "$WAR_MACHINE_CONFIG" > "$EXT_TEST/my_config.sh"
+			sed_i "s;LIBFT_PATH		= .*;LIBFT_PATH	=	$(pwd);" "$EXT_TEST/Makefile"
 		fi
-		#sed_i "/clear/d" "$EXT_TEST/grademe.sh"
-		#"$EXT_TEST/grademe.sh" -s -u
+		make -C "$EXT_TEST" a
 	fi
 }
 

@@ -30,11 +30,8 @@ watch() {
 				echo "$NORM_ERROR"
 			fi
 
-			if [[ $1 == "-v" ]] ; then
-				make test-v
-			else
-				make test
-			fi
+			./test.zsh "$@"
+
 		fi
 		sleep 0.1
 	done
@@ -49,4 +46,4 @@ get_state() {
 	echo $(find -L . -type f -name "*.c" -exec $MD5 {} \;)
 }
 
-watch $@
+watch "$@"
