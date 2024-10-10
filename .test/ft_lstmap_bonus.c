@@ -35,7 +35,6 @@ void	*edit_content_o_to_a(void *ct)
 	return (c);
 }
 
-
 void test_1() {
 	t_list *lst = ft_lstnew(strdup("Hey"));
 	lst->next = ft_lstnew(strdup("mum"));
