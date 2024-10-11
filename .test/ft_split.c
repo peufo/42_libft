@@ -1,3 +1,5 @@
+#include "../libft.h"
+
 typedef struct s_args t_args;
 struct s_args {
 	char const *str;
@@ -44,7 +46,7 @@ int main()
 		{
 			.str = "HELLO",
 			.c = 'L',
-			.accepted = (char *[]){ "HE", "O", NULL }
+			.accepted = (char *[3]){ "HE", "O", NULL }
 		},
 		{
 			.str = "HELLO",
