@@ -30,7 +30,7 @@ watch() {
 				echo "$NORM_ERROR"
 			fi
 
-			./test.zsh "$@"
+			make test
 
 		fi
 		sleep 0.1
@@ -46,4 +46,4 @@ get_state() {
 	echo $(find -L . -type f -name "*.c" -exec $MD5 {} \;)
 }
 
-watch "$@"
+watch

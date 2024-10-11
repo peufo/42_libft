@@ -41,10 +41,10 @@ so: $(OBJECTS)
 test-build: all $(TESTS) $(TESTS_BNS)
 
 test: all $(TESTS) $(TESTS_BNS)
-	@./test.zsh
+	@./test.zsh -l own
 
 test-v: all $(TESTS) $(TESTS_BNS)
-	@./test.zsh -v
+	@./test.zsh -l own -v
 
 $(DIR_TEST)/$(DIR_BUILD)/%: $(DIR_TEST)/%.c $(DIR_BUILD)/%.o | $(DIR_TEST)/$(DIR_BUILD)
 	@cc $(FLAGS) -include libft.h -include $(DIR_TEST)/test.h $< -o $@ $(LIBS)

@@ -1,10 +1,11 @@
 {
   "files.associations": {
-    "*.astro": "astro",
-    "libft.h": "c",
-    "sstream": "c",
-    "cstring": "c",
-    "__verbose_abort": "c",
-    "cstdio": "c"
-  }
+	"*.astro": "astro",
+	"libft.h": "c",
+	"sstream": "c",
+	"cstring": "c",
+	"__verbose_abort": "c",
+	"cstdio": "c",
+	"stdlib.h": "c"
+}
 }

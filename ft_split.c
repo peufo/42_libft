@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 15:54:47 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/08 16:33:07 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:53:33 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static size_t	get_length(char const *str_origin, char c)
 	return (length);
 }
 
-static void	add_next(char **arr, char *str, char c)
+static char	**add_next(char **arr, char *str, char c)
 {
 	char	*end;
 
@@ -59,11 +59,13 @@ static void	add_next(char **arr, char *str, char c)
 	if (str == end)
 	{
 		*arr = (void *)0;
-		return ;
+		return (arr);
 	}
 	*arr = str_cut(str, end);
-	add_next(arr + 1, end, c);
-	return ;
+	if (*arr && add_next(arr + 1, end, c))
+		return (arr);
+	free(*arr);
+	return (0);
 }
 
 char	**ft_split(char const *str_origin, char c)
@@ -77,6 +79,8 @@ char	**ft_split(char const *str_origin, char c)
 	arr = malloc(sizeof(*arr) * (length + 1));
 	if (!arr)
 		return (0);
-	add_next(arr, (char *)str_origin, c);
-	return (arr);
+	if (add_next(arr, (char *)str_origin, c))
+		return (arr);
+	free(arr);
+	return (0);
 }
