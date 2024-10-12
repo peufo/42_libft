@@ -3,7 +3,7 @@
 sync() {
 
 	#SYNC Makefile SOURCES
-	SOURCES=$(ls ft_*.c | sed '/.*\/ft_lst.*/d' | tr '\n' ' ')
+	SOURCES=$(ls ft_*.c | sed '/.*_bonus.c/d' | tr '\n' ' ')
 	SOURCES_BONUS=$(ls ft_*_bonus.c | tr '\n' ' ')
 
 	SED_COMMAND="s;^SOURCES	.*;SOURCES		=	$SOURCES;"
